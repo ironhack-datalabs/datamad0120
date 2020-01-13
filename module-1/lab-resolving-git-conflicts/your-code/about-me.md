@@ -1,4 +1,4 @@
-# Who am I... Jose Vidal
+# Who am I... Jose
 
 * Where are you from? Mostoles   
 * What do you do? binguero
