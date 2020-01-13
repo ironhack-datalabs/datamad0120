@@ -1,1 +1,1 @@
-Hola, me llamo Eduardo García Espeso y estoy probando git
+Hola, me llamo Eduardo García Espeso y estamos creando un conflicto
