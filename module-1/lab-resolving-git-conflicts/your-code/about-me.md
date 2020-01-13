@@ -14,4 +14,8 @@ pepico wallas
 
 * Which industry will you seek employment in?
 * What will your future role look like?
+<<<<<<< HEAD
 * What is your career goal?
+=======
+* What is your career goal?
+>>>>>>> rama2
