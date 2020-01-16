@@ -103,17 +103,17 @@ print(files)
 #You will probably need to import random module
 # Remember to use list comprehensions and to print your results
 
-random_lists = [[random.randrange(0,100) for i in range(10)]]
-
+random_lists = [[random.randrange(0,100) for i in range(10)]for n in range(4)]
 print(random_lists)
 
 
-'''
+
 #12. Flatten the following list of lists. Use flatten_list as the name of the output.
 # Remember to use list comprehensions and to print your results
 
 list_of_lists = [[1,2,3],[4,5,6],[7,8,9]]
-
+flatten_list = [valor for fila in list_of_lists for valor in fila]
+print(flatten_list)
 
 
 #13. Convert the numbers of the following nested list to floats. Use floats as the name of the list. 
@@ -123,16 +123,17 @@ list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', 
 ['30', '20', '30', '50', '10', '30', '20', '20', '20'], ['100', '100'], ['100', '100', '100', '100', '100'], \
 ['100', '100', '100', '100']]
 
-
+floats = [[float(i) for i in filas] for filas in list_of_lists]
+print(floats) 
 
 
 #14. Handle the exception thrown by the code below by using try and except blocks. 
 
 
 for i in ['a','b','c']:
-    print i**2
+    print (i**2)
 
-
+'''
 #15. Handle the exception thrown by the code below by using try and except blocks. 
 #Then use a finally block to print 'All Done.'
 # Check in provided resources the type of error you may use. 
