@@ -1,4 +1,4 @@
-#Example: 
+#Example:  
 
 eggs = (1,3,8,3,2)
 
