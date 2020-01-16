@@ -130,51 +130,78 @@ print(floats)
 #14. Handle the exception thrown by the code below by using try and except blocks. 
 
 
-for i in ['a','b','c']:
-    print (i**2)
+for i in ['a',2,'c']:
+    try:
+        print (i**2)
+    except Exception as i:
+        print("FAIL: Tipo de dato no aceptable, sorry")
 
-'''
+
 #15. Handle the exception thrown by the code below by using try and except blocks. 
 #Then use a finally block to print 'All Done.'
 # Check in provided resources the type of error you may use. 
 
 x = 5
 y = 0
-
-z = x/y
-
-
+try:
+    z = x/y
+except ZeroDivisionError:
+    print("FAIL: Indeterminación :(")
 
 
 #16. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
 
 abc=[10,20,20]
-print(abc[3])
+try:
+    print(abc[3])
+except IndexError:
+    print("FAIL: Index error. Fuera de rango. ")
+
 
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
+'''
+n1 = (input("Dividendo: "))
+n2 = (input("Divisor: "))
 
-
+try:
+    resultado = int(n1)/int(n2)
+    print("El resultado es:",resultado)
+except ZeroDivisionError:
+    print("FAIL: Indeterminación :( y tu queriendo dividir por 0...")
+except ValueError:
+    print("FAIL: El tipo de dato no es válido. Mete números please")
+'''
 
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
 
-f = open('testfile','r')
-f.write('Test write this')
-
+try:
+    f = open('testfile','r')
+    f.write('Test write this')
+except FileNotFoundError:
+    print("FAIL: El archivo o directorio no existe")
 
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
 
-fp = open('myfile.txt')
-    line = f.readline()
+try:
+
+    fp = open('myfile.txt')
+    line = fp.readline()
     i = int(s.strip())
+
+except FileNotFoundError:
+    print("FAIL: El archivo o directorio no existe")
+
+except ValueError:
+    print("FAIL: El tipo de dato no se puede convertir en integrers")
 
 
 
@@ -188,7 +215,11 @@ def linux_interaction():
     assert ('linux' in sys.platform), "Function can only run on Linux systems."
     print('Doing something.')
 
-
+try:
+    linux_interaction()
+except AssertionError:
+    print("FAIL: Function can only run on Linux systems")
+'''
 # Bonus Questions:
 
 # You will need to make some research on dictionary comprehension to solve the following questions
