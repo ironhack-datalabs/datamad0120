@@ -11,6 +11,7 @@ print(my_listComprehension)
 import os
 import pandas as pd
 import math
+import random as rd
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
@@ -48,33 +49,35 @@ print(odds)
 
 #6. Find all of the numbers from 1-1000 that are divisible by 7. Use divisible_by_seven as the name of the list.
 # Remember to use list comprehensions and to print your results
-
-
-
-
+'''
+divisible_by_seven = [i for i in range(1000) if (i%7) == 0]
+print(divisible_by_seven)
+'''
 #7. Remove all of the vowels in a string. Hint: make a list of the non-vowels. Use non_vowels as the name of the list.
 # Remember to use list comprehensions and to print your results
 # You can use the following test string but feel free to modify at your convenience
-
+'''
 teststring = 'Find all of the words in a string that are monosyllabic'
 
-
-
+non_vowels = [a for a in teststring if str.lower(a) not in ['a','e','i','o','u']]
+print(''.join(non_vowels))
+'''
 
 #8. Find the capital letters (and not white space) in the sentence 'The Quick Brown Fox Jumped Over The Lazy Dog'. 
 # Use capital_letters as the name of the list.  
 # Remember to use list comprehensions and to print your results
-
-
-
+'''
+capital_letters = [a for a in 'The Quick Brown Fox Jumped Over The Lazy Dog' if ord(a) >=65 and ord(a) <=90]
+print(capital_letters)
+'''
 
 #9. Find all the consonants in the sentence 'The quick brown fox jumped over the lazy dog'.
 # Use consonants as the name of the list.
 # Remember to use list comprehensions and to print your results.
-
-
-
-
+'''
+consonants = [ a for a in 'The quick brown fox jumped over the lazy dog' if str.lower(a) not in ['a','e','i','o','u']]
+print(consonants)
+'''
 
 #10. Find the folders you have in your madrid-oct-2018 local repo. Use files as name of the list.  
 # You will probably need to import os library and some of its modules. You will need to make some online research.
@@ -85,53 +88,69 @@ teststring = 'Find all of the words in a string that are monosyllabic'
 #11. Create 4 lists of 10 random numbers between 0 and 100 each. Use random_lists as the name of the list. 
 #You will probably need to import random module
 # Remember to use list comprehensions and to print your results
-
-
-
+'''
+random_lists = [[rd.randint(0,100) for a in range(10)] for x in range(4)]
+print(random_lists)
+'''
 
 #12. Flatten the following list of lists. Use flatten_list as the name of the output.
 # Remember to use list comprehensions and to print your results
-
+'''
 list_of_lists = [[1,2,3],[4,5,6],[7,8,9]]
 
-
-
+flatten_list = [b for a in list_of_lists for b in a]
+print(flatten_list)
+'''
 #13. Convert the numbers of the following nested list to floats. Use floats as the name of the list. 
 # Remember to use list comprehensions and to print your results.
-
+'''
 list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', '20'], \
 ['30', '20', '30', '50', '10', '30', '20', '20', '20'], ['100', '100'], ['100', '100', '100', '100', '100'], \
 ['100', '100', '100', '100']]
 
-
+floats = [float(b) for a in list_of_lists for b in a]
+print(floats)
+'''
 
 
 #14. Handle the exception thrown by the code below by using try and except blocks. 
 
-
-#for i in ['a','b','c']:
-#    print i**2
-
-
+'''
+for i in ['a','b','c']:
+    try:
+        print(i**2)
+    except Exception as e:
+        print("Operation not allowed")
+    except SyntaxError as s:
+        print("Error de sintaxis")
+#He añadido los parentesis al return porque la terminal de Visual Code me forzaba a arreglar la sintaxis
+'''
 #15. Handle the exception thrown by the code below by using try and except blocks. 
 #Then use a finally block to print 'All Done.'
 # Check in provided resources the type of error you may use. 
-
+'''
 x = 5
 y = 0
-
-#z = x/y
+try:
+    z = x/y
+except ZeroDivisionError as z:
+    print("No dividas por cero, my friend")
+finally:
+    print("All done")
+'''
 
 
 
 
 #16. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
-
-abc=[10,20,20]
-#print(abc[3])
-
-
+'''
+try:
+    abc=[10,20,20]
+    print(abc[3])
+except IndexError as i:
+    print('Indice no accesible')
+'''
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
