@@ -12,6 +12,7 @@ import math
 import os
 import random
 import io
+import sys
 
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
@@ -218,7 +219,7 @@ def linux_interaction():
   try:
     assert ('linux' in sys.platform), "Function can only run on Linux systems."
     print('Doing something.')
-  except NameError as err:
+  except AssertionError as err:
     print('This function only works in Linux systems')
     print(err)
 
@@ -230,21 +231,47 @@ def linux_interaction():
 #21.  Write a function that asks for an integer and prints the square of it. 
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
-
-
+def squares():
+    while True:
+        try:
+            a = int(input('Give me an integer '))
+            print(a**2)
+            break
+        except ValueError as err:
+            print('It has to be an integer ')
+            print(err)
+squares()
 
 
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
 
-
+results = list(set([e for e in range(1,1001) for f in [e for e in range(2, 10)] if e % f == 0]))
+print(results)
 
 
 # 23. Define a customised exception to handle not accepted values. 
 # You have the following user inputs and the Num_of_sections can not be less than 2.
 # Hint: Create a class derived from the pre-defined Exception class in Python
+# define Python user-defined exceptions
+class Error(Exception):
+   """Base class for other exceptions"""
+   pass
+class ValueTooSmallError(Error):
+   """Raised when the input value is too small"""
+   pass
+minim = 2
+total_Marks = int(input("Enter Total Marks Scored: ")) 
+while True:
+  try:
+    num_of_Sections = int(input("Enter Num of Sections: "))
+    if num_of_Sections <= minim:
+      raise ValueTooSmallError
+    break
+  except ValueTooSmallError:
+    print("Number of Sections has to be greater than 2")
 
-Total_Marks = int(input("Enter Total Marks Scored: ")) 
-Num_of_Sections = int(input("Enter Num of Sections: "))
+ 
+print("Congrats!")
 
 
