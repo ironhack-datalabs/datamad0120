@@ -146,7 +146,7 @@ y = 0
 try:
     z = x/y
 except ZeroDivisionError:
-    print("FAIL: Indeterminación :(")
+    print("FAIL | ZeroDivisionError: Indeterminación :(")
 
 
 #16. Handle the exception thrown by the code below by using try and except blocks. 
@@ -156,7 +156,7 @@ abc=[10,20,20]
 try:
     print(abc[3])
 except IndexError:
-    print("FAIL: Index error. Fuera de rango. ")
+    print("FAIL | IndexError: Index error. Fuera de rango. ")
 
 
 
@@ -171,9 +171,9 @@ try:
     resultado = int(n1)/int(n2)
     print("El resultado es:",resultado)
 except ZeroDivisionError:
-    print("FAIL: Indeterminación :( y tu queriendo dividir por 0...")
+    print("FAIL | ZeroDivisionError: Indeterminación :( y tu queriendo dividir por 0...")
 except ValueError:
-    print("FAIL: El tipo de dato no es válido. Mete números please")
+    print("FAIL| ValueError: El tipo de dato no es válido. Mete números please")
 '''
 
 
@@ -184,7 +184,7 @@ try:
     f = open('testfile','r')
     f.write('Test write this')
 except FileNotFoundError:
-    print("FAIL: El archivo o directorio no existe")
+    print("FAIL:| FileNotFoundError: El archivo o directorio no existe")
 
 
 
@@ -198,13 +198,15 @@ try:
     i = int(s.strip())
 
 except FileNotFoundError:
-    print("FAIL: El archivo o directorio no existe")
+    print("FAIL:| FileNotFoundError: El archivo o directorio no existe")
 
 except ValueError:
-    print("FAIL: El tipo de dato no se puede convertir en integrers")
+    print("FAIL| ValueError: El tipo de dato no se puede convertir en integrers")
 
+except NameError:
+    print("FAIL | NameError: El archivo referido no está identificado")
 
-
+'''
 
 #20. The following function can only run on a Linux system. 
 # The assert in this function will throw an exception if you call it on an operating system other than Linux. 
@@ -218,7 +220,7 @@ def linux_interaction():
 try:
     linux_interaction()
 except AssertionError:
-    print("FAIL: Function can only run on Linux systems")
+    print("FAIL | Assertion Error: Function can only run on Linux systems")
 
 
 # Bonus Questions:
@@ -235,10 +237,10 @@ def square_of_n():
             new = math.sqrt(int(n))
             break
         except ValueError:
-            print("FAIL: Error de valor. Ingresa un número entero")
+            print("FAIL | ValueError: Error de valor. Ingresa un número entero")
 
         except TypeError:
-            print("FAIL: Error de tipo. Ingreas un número entero")
+            print("FAIL | TypeError: Error de tipo. Ingreas un número entero")
     return new  
 
 #print(square_of_n())
@@ -253,7 +255,7 @@ results = [i for i in range(1,1001) if [div for div in digits if i % div == 0]]
 print(results)
 
 
-
+'''
 '''
 # 23. Define a customised exception to handle not accepted values. 
 # You have the following user inputs and the Num_of_sections can not be less than 2.
