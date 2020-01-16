@@ -13,6 +13,7 @@ import pandas as pd
 import math
 import random as rd
 import sys
+import glob
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
@@ -83,8 +84,10 @@ print(consonants)
 #10. Find the folders you have in your madrid-oct-2018 local repo. Use files as name of the list.  
 # You will probably need to import os library and some of its modules. You will need to make some online research.
 # Remember to use list comprehensions and to print your results.
-
-
+'''
+files = [f.split('\\')[1] for f in glob.glob(r'../../../../madrid-oct-2018/*') if os.path.isdir(f)]
+print(files)
+'''
 
 #11. Create 4 lists of 10 random numbers between 0 and 100 each. Use random_lists as the name of the list. 
 #You will probably need to import random module
@@ -231,7 +234,12 @@ except AssertionError as asser:
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
 
+results = [ a for a in range(1001) if a % x == 0 for x in range(2,10)]
 
+for a in range(1001):
+    for x in range(2,10):
+        if a % x == 0:
+            l.append(a)
 
 
 # 23. Define a customised exception to handle not accepted values. 
