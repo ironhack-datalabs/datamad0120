@@ -8,44 +8,46 @@ print(my_listComprehension)
 
 #Insert here the module/library import statements 
 
-
+import math as m
 
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
 
-
+square = [m.pow(2,e) for e in range(1,21)]
+print(square)  
 
 
 #2. Calculate the first 50 power of two. Use power_of_two as the name of the list.
 # Remember to use list comprehensions and to print your results
 
-
-
+power_of_two = [m.pow(e,2) for e in range(1,51)]
+print(power_of_two)
 
 #3. Calculate the square root of the first 100 numbers. Use sqrt as the name of the list.
 # You will probably need to install math library with pip and import it in this file.  
 # Remember to use list comprehensions and to print your results
 
-
-
+sqrt = [m.sqrt(e) for e in range(1,100)]
+print(sqrt)
 
 #4. Create this list [-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0]. Use my_list as the name of the list.
 # Remember to use list comprehensions and to print your results
 
-
-
+my_list = [e for e in range(-10,1)]
+print(my_list)
 
 #5. Find the odd numbers from 1-100. Use odds as the name of the list. 
 # Remember to use list comprehensions and to print your results
 
-
-
+odds = [e for e in range(1,100) if e%2 != 0]
+print(odds)
 
 #6. Find all of the numbers from 1-1000 that are divisible by 7. Use divisible_by_seven as the name of the list.
 # Remember to use list comprehensions and to print your results
 
-
+divisible_by_seven = [e for e in range(1,1000) if e%7 == 0]
+print(divisible_by_seven)
 
 
 #7. Remove all of the vowels in a string. Hint: make a list of the non-vowels. Use non_vowels as the name of the list.
@@ -55,8 +57,10 @@ print(my_listComprehension)
 teststring = 'Find all of the words in a string that are monosyllabic'
 
 
+non_vowels = [e for e in teststring if e != ('a','e','i','o','u')]
+print(non_vowels)
 
-
+"""
 #8. Find the capital letters (and not white space) in the sentence 'The Quick Brown Fox Jumped Over The Lazy Dog'. 
 # Use capital_letters as the name of the list.  
 # Remember to use list comprehensions and to print your results
@@ -189,3 +193,4 @@ Total_Marks = int(input("Enter Total Marks Scored: "))
 Num_of_Sections = int(input("Enter Num of Sections: "))
 
 
+"""
