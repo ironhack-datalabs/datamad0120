@@ -106,7 +106,7 @@ list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', 
 
 
 for i in ['a','b','c']:
-    print i**2
+    print (i**2)
 
 
 #15. Handle the exception thrown by the code below by using try and except blocks. 
