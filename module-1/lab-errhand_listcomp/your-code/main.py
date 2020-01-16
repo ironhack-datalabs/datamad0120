@@ -1,3 +1,4 @@
+
 #Example: 
 
 eggs = (1,3,8,3,2)
@@ -11,6 +12,7 @@ print("\n","\n")
 #Insert here the module/library import statements 
 import math
 import os
+import random
 
 
 
@@ -98,19 +100,21 @@ with os.scandir('c:/Users/g.diego/desktop/ironhack/datamad0120-1/module-1/lab-er
         files.append(entry.name)
     print(files)
 
-'''
+
 #11. Create 4 lists of 10 random numbers between 0 and 100 each. Use random_lists as the name of the list. 
 #You will probably need to import random module
 # Remember to use list comprehensions and to print your results
 
-
+random_lists = [random.sample(range(100), 10) for i in range(4)]
+print(random_lists)
 
 
 #12. Flatten the following list of lists. Use flatten_list as the name of the output.
 # Remember to use list comprehensions and to print your results
 
 list_of_lists = [[1,2,3],[4,5,6],[7,8,9]]
-
+flatten_list = [i for k in list_of_lists for i in k]
+print(flatten_list) 
 
 
 #13. Convert the numbers of the following nested list to floats. Use floats as the name of the list. 
@@ -120,16 +124,23 @@ list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', 
 ['30', '20', '30', '50', '10', '30', '20', '20', '20'], ['100', '100'], ['100', '100', '100', '100', '100'], \
 ['100', '100', '100', '100']]
 
+#opcion 1
+floats1 = [[float(k) for k in i] for i in list_of_lists]
+#opcion 2
+floats2 = [float(i) for k in list_of_lists for i in k]
 
+print(floats1)
+print(floats2)
 
 
 #14. Handle the exception thrown by the code below by using try and except blocks. 
 
-
 for i in ['a','b','c']:
-    print i**2
-
-
+    try:
+        print (i**2)
+    except TypeError:
+        print("Type error: introduce un int")
+        
 
 #15. Handle the exception thrown by the code below by using try and except blocks. 
 #Then use a finally block to print 'All Done.'
@@ -137,43 +148,71 @@ for i in ['a','b','c']:
 
 x = 5
 y = 0
-
-z = x/y
-
-
+try:
+    z = x/y
+except ZeroDivisionError:
+    print("No se puede dividir por cero, canelo")
 
 
 #16. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
 
 abc=[10,20,20]
-print(abc[3])
+try:
+    print(abc[3])
+except IndexError:
+    print("Index fuera de rango chaval!")   
 
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
 
+'''
+elem = []
+i=0
+while i < 2:
+    try:
+        x = int(input("Introduce un número: "))
+        elem.append(x)
+        i+=1
+    except ZeroDivisionError:
+        print("No se puede dividir por cero, canelo.")
+    except ValueError:
+        print("No es válido, introduce un número.")    
 
+div=(elem[0]/elem[1])
+print(div)
+
+'''
 
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
-
-f = open('testfile','r')
-f.write('Test write this')
-
+import io
+try:
+    f = open('testfile','r')
+    f.write('Test write this')
+except FileNotFoundError:
+    print("No se ha encontrado el archivo")
+except io.UnsupportedOperation:
+    print("No se puede escribir en el archivo. Solo lectura. Cambie variable r por w.")
 
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
+try:
+    fp = open('myfile.txt')
+    line = fp.readline()
+    i = int(fp.strip())
 
-fp = open('myfile.txt')
-    line = f.readline()
-    i = int(s.strip())
-
-
+except FileNotFoundError:
+    print("No se ha encontrado el archivo")
+except NameError:
+    print("No se ha definido s")
+except:
+    print("Frustración. Al Oportiño")
 
 
 #20. The following function can only run on a Linux system. 
@@ -210,4 +249,3 @@ def linux_interaction():
 Total_Marks = int(input("Enter Total Marks Scored: ")) 
 Num_of_Sections = int(input("Enter Num of Sections: "))
 
-'''
