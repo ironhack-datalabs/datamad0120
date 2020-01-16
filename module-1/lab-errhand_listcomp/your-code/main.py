@@ -172,26 +172,39 @@ def linux_interaction():
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
 
-while True:
-    try:
-        integer = int(input('Introduce an integer:'))
-        print(integer**2)
-        break
-    except ValueError :
-        print("That's not a number. Try again.")
+def square_n():
+    while True:
+        try:
+            integer = int(input('Introduce an integer:'))
+            return integer**2
+        except ValueError :
+            print("That's not a number. Try again.")
 
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
 
-results = [e for i in range(2,9) for e in range(1,1000) if e%i == 0]
+results = list(set([e  for e in range(1,1000) for n in  range(2,9) if e%n == 0 ]))
 print(results)
 
 
 # 23. Define a customised exception to handle not accepted values. 
+class Error(Exception):
+   """Base class for other exceptions"""
+   pass
+class ValueSmall(Error):
+    """Raised when the input value is too small"""
+    pass
 # You have the following user inputs and the Num_of_sections can not be less than 2.
 # Hint: Create a class derived from the pre-defined Exception class in Python
 
-Total_Marks = int(input("Enter Total Marks Scored: ")) 
-Num_of_Sections = int(input("Enter Num of Sections: "))
-
-
+while True:
+    try:
+        Total_Marks = int(input("Enter Total Marks Scored: ")) 
+        Num_of_Sections = int(input("Enter Num of Sections: "))
+        if Num_of_Sections < 2 :
+            raise ValueSmall 
+        break
+    except ValueSmall:
+        print('Enter a new valid Num of sections')
+    except ValueError:
+        print('That is not a number')
