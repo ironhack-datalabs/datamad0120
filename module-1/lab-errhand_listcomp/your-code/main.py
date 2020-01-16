@@ -112,10 +112,13 @@ list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', 
 ['30', '20', '30', '50', '10', '30', '20', '20', '20'], ['100', '100'], ['100', '100', '100', '100', '100'], \
 ['100', '100', '100', '100']]
 
-floats = [float(b) for a in list_of_lists for b in a]
+floats_aplan = [float(b) for a in list_of_lists for b in a]
+print(floats_aplan)
+
+floats = [[float(b) for b in a] for a in list_of_lists]
 print(floats)
 
-
+'''Solución aplanando y sin aplanar'''
 
 #14. Handle the exception thrown by the code below by using try and except blocks. 
 
