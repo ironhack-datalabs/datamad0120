@@ -13,16 +13,19 @@ print(my_listComprehension)
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
-
-
+square= [i**2 for i in range(20)]
+print(square)
+print(len(square))
 
 
 #2. Calculate the first 50 power of two. Use power_of_two as the name of the list.
 # Remember to use list comprehensions and to print your results
+power_of_two = [i**2 for i in range(50)]
+print(power_of_two)
+print(len(power_of_two))
 
 
-
-
+'''
 #3. Calculate the square root of the first 100 numbers. Use sqrt as the name of the list.
 # You will probably need to install math library with pip and import it in this file.  
 # Remember to use list comprehensions and to print your results
@@ -106,7 +109,7 @@ list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', 
 
 
 for i in ['a','b','c']:
-    print (i**2)
+    print i**2
 
 
 #15. Handle the exception thrown by the code below by using try and except blocks. 
@@ -188,4 +191,5 @@ def linux_interaction():
 Total_Marks = int(input("Enter Total Marks Scored: ")) 
 Num_of_Sections = int(input("Enter Num of Sections: "))
 
+'''
 
