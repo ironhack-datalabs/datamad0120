@@ -131,12 +131,11 @@ except ZeroDivisionError :
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
-try :
+try:
     f = open('testfile','r')
     f.write('Test write this')
-except FileNotFoundError :
+except FileNotFoundError:
     print('El archivo no existe')
-except 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
@@ -144,20 +143,25 @@ try :
     fp = open('myfile.txt')
     line = f.readline()
     i = int(s.strip())
-except FileNotFoundError :
+except FileNotFoundError:
     print('El arhivo no existe')
-except 
-
+except ValueError:
+    print('Could not convert data to an integer')
+except IOError:
+    print('Cannot access to the file')
 
 
 #20. The following function can only run on a Linux system. 
 # The assert in this function will throw an exception if you call it on an operating system other than Linux. 
 # Handle this exception using try and except blocks. 
 # You will probably need to import sys 
-
+import sys 
 def linux_interaction():
-    assert ('linux' in sys.platform), "Function can only run on Linux systems."
-    print('Doing something.')
+    try: 
+        assert ('linux' in sys.platform), "Function can only run on Linux systems."
+        print('Doing something.')
+    except AssertionError:
+        print('Only work with Linux system')
 
 
 # Bonus Questions:
@@ -168,13 +172,19 @@ def linux_interaction():
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
 
-
-
+while True:
+    try:
+        integer = int(input('Introduce an integer:'))
+        print(integer**2)
+        break
+    except ValueError :
+        print("That's not a number. Try again.")
 
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
 
-
+results = [e for i in range(2,9) for e in range(1,1000) if e%i == 0]
+print(results)
 
 
 # 23. Define a customised exception to handle not accepted values. 
