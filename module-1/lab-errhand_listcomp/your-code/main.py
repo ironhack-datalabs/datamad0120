@@ -84,7 +84,7 @@ sentence= 'The quick brown fox jumped over the lazy dog'
 consonants=[e for e in sentence.lower() if (e not in ["a" ,"e" , "i" , "o" , "u"] and e!=" ")]
 print (consonants)
 
-'''
+
 #10. Find the folders you have in your madrid-oct-2018 local repo. Use files as name of the list.  
 # You will probably need to import os library and some of its modules. You will need to make some online research.
 # Remember to use list comprehensions and to print your results.
@@ -101,9 +101,13 @@ with os.scandir('/home/laura/Escritorio/Ironhack_data/datamad0120/module-1/lab-e
 #You will probably need to import random module
 # Remember to use list comprehensions and to print your results
 
+import random
 
+random_lists=[[e for e in random.choices(range(100),k=10)] for i in range (4)]
 
+print(random_lists)
 
+'''
 #12. Flatten the following list of lists. Use flatten_list as the name of the output.
 # Remember to use list comprehensions and to print your results
 
