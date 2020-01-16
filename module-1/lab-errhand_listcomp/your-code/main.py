@@ -210,5 +210,5 @@ print(divisible_list)
 
 
 class Error(Exception):
-Total_Marks = int(input("Enter Total Marks Scored: ")) 
+Total_Marks = int(input("Enter Total Marks Scored: "))  
 Num_of_Sections = int(input("Enter Num of Sections: "))
