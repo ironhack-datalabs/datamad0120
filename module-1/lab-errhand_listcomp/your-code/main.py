@@ -12,6 +12,7 @@ import os
 import pandas as pd
 import math
 import random as rd
+import sys
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
@@ -154,39 +155,68 @@ except IndexError as i:
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
-
-
-
-
+'''
+while True:
+    try:
+        a = int(input('Introduce dividendo: '))
+        break
+    except ValueError as v:
+        print("Valor no valido")
+while True:
+    try:
+        b = int(input('Introduce divisor: '))
+        break
+    except ValueError as v:
+        print("Valor no valido")
+while True:
+    try:
+        print("Division:",a/b)
+        break
+    except ZeroDivisionError as z:
+        print("No dividas por cero")
+'''
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
-
-#f = open('testfile','r')
-#f.write('Test write this')
-
-
+'''
+try:
+    f = open('testfile','r')
+    f.write('Test write this')
+except FileNotFoundError as f:
+    print('No se encuentra el fichero')
+'''
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
-
-#fp = open('myfile.txt')
-#    line = f.readline()
-#    i = int(s.strip())
-
-
+'''
+try:
+    fp = open('myfile.txt')
+    line = f.readline()
+    i = int(s.strip())
+except FileNotFoundError as f:
+    print('No se encuentra ese fichero')
+except IndentationError as i:
+    print('La indentación no es correcta')
+except NameError as n:
+    print('Variable no definida')
+except ValueError as v:
+    print('Valor inválido')
+'''
 
 
 #20. The following function can only run on a Linux system. 
 # The assert in this function will throw an exception if you call it on an operating system other than Linux. 
 # Handle this exception using try and except blocks. 
 # You will probably need to import sys 
-
-#def linux_interaction():
-#    assert ('linux' in sys.platform), "Function can only run on Linux systems."
-#    print('Doing something.')
-
-
+'''
+def linux_interaction():
+    assert ('linux' in sys.platform), "Function can only run on Linux systems."
+    print('Doing something.')
+try:
+    linux_interaction()
+except AssertionError as asser:
+    print("--- Solo fans del pingüino 🐧 ---")
+'''
 # Bonus Questions:
 
 # You will need to make some research on dictionary comprehension to solve the following questions
