@@ -11,7 +11,8 @@ print(my_listComprehension)
 import math
 import os
 import random
-from random import sample
+import io
+import sys
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
@@ -26,7 +27,7 @@ print(square)
 
 power_of_two = [2 ** n for n in range(51)]
 
-print(two)
+print(power_of_two)
 
 
 #3. Calculate the square root of the first 100 numbers. Use sqrt as the name of the list.
@@ -154,8 +155,6 @@ for i in ['a','b','c']:
 x = 5
 y = 0
 
-z = x/y
-
 try:
   z = x/y
 except ZeroDivisionError:
@@ -168,31 +167,45 @@ except ZeroDivisionError:
 # Check in provided resources the type of error you may use. 
 
 abc=[10,20,20]
-print(abc[3])
+
+try:
+  print(abc[3])
+except IndexError:
+  print("No hay ítem con ese índice en la lista")
 
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
 
-
+try:
+    a = int(input("Número 1 "))
+    b = int(input("Número 2 "))
+except ValueError as v:
+    print("Tiene que ser un número")
 
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
 
-f = open('testfile','r')
-f.write('Test write this')
-
-
+try:
+    f = open('your-code/read.txt','r')
+    f.write('Test write this')
+except FileNotFoundError:
+    print("No se encuentra el archivo. Prueba a escribirlo con la extensión.")
+except io.UnsupportedOperation:
+    print("No se puede realizar esta operación.")
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
 
-fp = open('myfile.txt')
+try:
+    fp = open('myfile.txt')
     line = f.readline()
     i = int(s.strip())
+except FileNotFoundError:
+    print("No se encuentra el archivo. Revisa si está en la misma carpeta")
 
 
 
@@ -203,8 +216,11 @@ fp = open('myfile.txt')
 # You will probably need to import sys 
 
 def linux_interaction():
-    assert ('linux' in sys.platform), "Function can only run on Linux systems."
-    print('Doing something.')
+    try:
+        assert ('linux' in sys.platform), "Function can only run on Linux systems."
+        print('Doing something.')
+    except AssertionError:
+        print("Esta función solo funciona en Linux")
 
 
 # Bonus Questions:
