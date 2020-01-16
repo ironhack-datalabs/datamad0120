@@ -207,17 +207,20 @@ except FileNotFoundError as e:
 print("----")
 
 
-'''#19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
+#19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
-
-fp = open('myfile.txt')
-    line = f.readline()
-    i = int(s.strip())
-
-
+try:
+    fp = open('myfile.txt')
+        line = f.readline()
+        i = int(s.strip())
 
 
-#20. The following function can only run on a Linux system. 
+except IndentationError as e:
+    print(e)
+except FileNotFoundError as e:
+    print(e)
+
+'''#20. The following function can only run on a Linux system. 
 # The assert in this function will throw an exception if you call it on an operating system other than Linux. 
 # Handle this exception using try and except blocks. 
 # You will probably need to import sys 
