@@ -241,7 +241,7 @@ def square_of_n():
             print("FAIL: Error de tipo. Ingreas un número entero")
     return new  
 
-print(square_of_n())
+#print(square_of_n())
 
 
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
@@ -249,7 +249,9 @@ print(square_of_n())
 
 digits = [2,3,4,5,6,7,8,9]
 
-results = [i for i in range(1,1000) if i % ]
+results = [i for i in range(1,1001) if [div for div in digits if i % div == 0]]
+print(results)
+
 
 
 '''
