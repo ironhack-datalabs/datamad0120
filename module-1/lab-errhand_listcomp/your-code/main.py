@@ -91,15 +91,16 @@ print(files)
 #You will probably need to import random module
 # Remember to use list comprehensions and to print your results
 
-
-
+import random
+lista=[[random.randint(1,100) for e in range(10)] for e in range(4)]
+print(lista)
 
 #12. Flatten the following list of lists. Use flatten_list as the name of the output.
 # Remember to use list comprehensions and to print your results
 
 list_of_lists = [[1,2,3],[4,5,6],[7,8,9]]
-
-
+flatten_list=[item for sublist in list_of_lists for item in sublist]
+print(flatten_list)
 
 #13. Convert the numbers of the following nested list to floats. Use floats as the name of the list. 
 # Remember to use list comprehensions and to print your results.
@@ -108,15 +109,19 @@ list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', 
 ['30', '20', '30', '50', '10', '30', '20', '20', '20'], ['100', '100'], ['100', '100', '100', '100', '100'], \
 ['100', '100', '100', '100']]
 
-
-
+floats=[float(item) for sublist in list_of_lists for item in sublist]
+print(floats)
 
 #14. Handle the exception thrown by the code below by using try and except blocks. 
-
 
 for i in ['a','b','c']:
     print i**2
 
+try:
+    for i in ['a','b','c']:
+        print(i**2)
+except:
+    print('la lista debe contener números solamente')
 
 #15. Handle the exception thrown by the code below by using try and except blocks. 
 #Then use a finally block to print 'All Done.'
@@ -127,7 +132,14 @@ y = 0
 
 z = x/y
 
-
+try:
+    x = 5
+    y = 0
+    z = x/y
+except ZeroDivisionError:
+    print('no se puede dividir por cero, daría un número infinito')
+finally:
+    print('All done')
 
 
 #16. Handle the exception thrown by the code below by using try and except blocks. 
@@ -136,13 +148,30 @@ z = x/y
 abc=[10,20,20]
 print(abc[3])
 
+try:
+    abc=[10,20,20]
+    print(abc[3])
+
+except IndexError:
+    print('el número 3 no aparece en el rango abc')
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
 
+try:
+    intento2=sum(9/3)
+    print(intento2)
+except TypeError:
+    print('Error dado que no puede sumar nada')
 
-
+try:
+    intento1=a/h
+    print(intento1)
+except NameError:
+    print('El nombre de la variable no está definido y no es un número')
+finally:
+    print('All checked')
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
@@ -150,7 +179,11 @@ print(abc[3])
 f = open('testfile','r')
 f.write('Test write this')
 
-
+try:
+    f = open('testfile','r')
+    f.write('Test write this')
+except FileNotFoundError:
+    print('no se ha encontrado el fichero mencionado')
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
@@ -160,7 +193,12 @@ fp = open('myfile.txt')
     line = f.readline()
     i = int(s.strip())
 
-
+try:
+    fp = open('myfile.txt')
+    line = f.readline()
+    i = int(s.strip())
+except FileNotFoundError:
+    print('el archivo no se encuentra')
 
 
 #20. The following function can only run on a Linux system. 
@@ -168,10 +206,12 @@ fp = open('myfile.txt')
 # Handle this exception using try and except blocks. 
 # You will probably need to import sys 
 
-def linux_interaction():
-    assert ('linux' in sys.platform), "Function can only run on Linux systems."
-    print('Doing something.')
-
+try:
+    def linux_interaction():
+        assert ('linux' in sys.platform), "Function can only run on Linux systems."
+        print('Doing something.')
+except ImportError:
+    print('funcion no definida para Mac')
 
 # Bonus Questions:
 
