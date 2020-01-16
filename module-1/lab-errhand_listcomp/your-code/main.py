@@ -219,7 +219,7 @@ def numberDivisible(number):
     return False
 
 results = [i for i in range(1, 1001) if numberDivisible(i)]
-print(results)
+print(f"22. results: {results}")
 
 # 23. Define a customised exception to handle not accepted values.
 # You have the following user inputs and the Num_of_sections can not be less than 2.
