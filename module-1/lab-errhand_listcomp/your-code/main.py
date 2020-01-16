@@ -256,8 +256,28 @@ print(list(set(results)))
 # 23. Define a customised exception to handle not accepted values. 
 # You have the following user inputs and the Num_of_sections can not be less than 2.
 # Hint: Create a class derived from the pre-defined Exception class in Python
+class Error(Exception):
+   """Base class for other exceptions"""
+   pass
+class ValueTooSmallError(Error):
+   """Raised when the input value is too small"""
+   pass
+minim = 2
+total_Marks = int(input("Enter Total Marks Scored: ")) 
+while True:
+  try:
+    num_of_Sections = int(input("Enter Num of Sections: "))
+    if num_of_Sections <= minim:
+      raise ValueTooSmallError
+    break
+  except ValueTooSmallError:
+    print("Number of Sections has to be greater than 2")
+​
+ 
+print("Congrats!")
 
-Total_Marks = int(input("Enter Total Marks Scored: ")) 
-Num_of_Sections = int(input("Enter Num of Sections: "))
+
+
+
 
 
