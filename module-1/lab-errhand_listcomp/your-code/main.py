@@ -135,8 +135,12 @@ for i in ['a','b','c']:
 x = 5
 y = 0
 
-z = x/y
-
+try:
+  z = x/y
+except ZeroDivisionError:
+  print('y cannot be 0')
+finally:
+  print('All Done')
 
 
 
@@ -144,13 +148,16 @@ z = x/y
 # Check in provided resources the type of error you may use. 
 
 abc=[10,20,20]
-print(abc[3])
+try:
+    print(abc[3])
+except IndexError:
+    print('list is shorter than the index given')
 
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
-
+a, b = input('Give me 2 numbers: ', a, b)
 
 
 
