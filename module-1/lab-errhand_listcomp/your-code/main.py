@@ -206,6 +206,8 @@ try:
     i = int(s.strip())
 except FileNotFoundError:
     print("No se encuentra el archivo. Revisa si está en la misma carpeta")
+except ValueError:
+    print("La función necesita un número.")
 
 
 
@@ -221,6 +223,7 @@ def linux_interaction():
         print('Doing something.')
     except AssertionError:
         print("Esta función solo funciona en Linux")
+linux_interaction()
 
 
 # Bonus Questions:
@@ -231,13 +234,23 @@ def linux_interaction():
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
 
-
+def squareNumber():
+  while True:
+    try:
+      a = int(input("Introduce un número "))
+      return a**2
+    except ValueError:
+      print("El número tiene que ser entero")
+  
+squareNumber()
 
 
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
 
+results = [n for n in range(1,1001) for m in [n for n in range(2,9)] if n % m == 0]
 
+print(list(set(results)))
 
 
 # 23. Define a customised exception to handle not accepted values. 
