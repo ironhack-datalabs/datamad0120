@@ -194,7 +194,7 @@ except FileNotFoundError:
 try:
 
     fp = open('myfile.txt')
-    line = fp.readline()
+    line = f.readline()
     i = int(s.strip())
 
 except FileNotFoundError:
