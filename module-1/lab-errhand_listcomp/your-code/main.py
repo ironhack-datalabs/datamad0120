@@ -8,8 +8,9 @@ print(my_listComprehension)
 
 #Insert here the module/library import statements 
 import math
-
-
+import os
+import sys
+import random
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
@@ -73,13 +74,17 @@ sentence = 'The Quick Brown Fox Jumped Over The Lazy Dog'
 capital_letters = [i for i in sentence if i == i.upper() and i != " "]
 print(capital_letters)
 
+# También funciona guay la de Guille y probablemente funcione si se añaden números: 
+# #capital_letters = [i for i in sentence if i not in sentence.lower()]
 
-'''
 #9. Find all the consonants in the sentence 'The quick brown fox jumped over the lazy dog'.
 # Use consonants as the name of the list.
 # Remember to use list comprehensions and to print your results.
 
+sentence2 = 'The quick brown fox jumped over the lazy dog'
 
+consonants = [i for i in sentence2 if i not in ["a","e","i","o","u"] and i != " "]
+print(consonants)
 
 
 
@@ -87,15 +92,23 @@ print(capital_letters)
 # You will probably need to import os library and some of its modules. You will need to make some online research.
 # Remember to use list comprehensions and to print your results.
 
+path = "/Users/miguelceinos/repo-ejemplo/madrid-oct-2018"
+direcc = os.listdir(path)
+files = [i for i in direcc]
+print(files)
 
+#se puede usar también scandir para que se cree un iterador. 
 
 #11. Create 4 lists of 10 random numbers between 0 and 100 each. Use random_lists as the name of the list. 
 #You will probably need to import random module
 # Remember to use list comprehensions and to print your results
 
+random_lists = [[random.randrange(0,100) for i in range(10)]]
+
+print(random_lists)
 
 
-
+'''
 #12. Flatten the following list of lists. Use flatten_list as the name of the output.
 # Remember to use list comprehensions and to print your results
 
