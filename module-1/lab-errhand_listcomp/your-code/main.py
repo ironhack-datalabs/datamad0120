@@ -219,7 +219,8 @@ try:
     linux_interaction()
 except AssertionError:
     print("FAIL: Function can only run on Linux systems")
-'''
+
+
 # Bonus Questions:
 
 # You will need to make some research on dictionary comprehension to solve the following questions
@@ -227,16 +228,31 @@ except AssertionError:
 #21.  Write a function that asks for an integer and prints the square of it. 
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
+def square_of_n():
+    while True:
+        try:    
+            n = input ("Número: ")
+            new = math.sqrt(int(n))
+            break
+        except ValueError:
+            print("FAIL: Error de valor. Ingresa un número entero")
 
+        except TypeError:
+            print("FAIL: Error de tipo. Ingreas un número entero")
+    return new  
 
+print(square_of_n())
 
 
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
 
+digits = [2,3,4,5,6,7,8,9]
+
+results = [i for i in range(1,1000) if i % ]
 
 
-
+'''
 # 23. Define a customised exception to handle not accepted values. 
 # You have the following user inputs and the Num_of_sections can not be less than 2.
 # Hint: Create a class derived from the pre-defined Exception class in Python
