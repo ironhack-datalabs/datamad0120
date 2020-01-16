@@ -163,7 +163,7 @@ except IndexError:
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
-'''
+
 n1 = (input("Dividendo: "))
 n2 = (input("Divisor: "))
 
@@ -174,7 +174,7 @@ except ZeroDivisionError:
     print("FAIL | ZeroDivisionError: Indeterminación :( y tu queriendo dividir por 0...")
 except ValueError:
     print("FAIL| ValueError: El tipo de dato no es válido. Mete números please")
-'''
+
 
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
@@ -205,8 +205,6 @@ except ValueError:
 
 except NameError:
     print("FAIL | NameError: El archivo referido no está identificado")
-
-'''
 
 #20. The following function can only run on a Linux system. 
 # The assert in this function will throw an exception if you call it on an operating system other than Linux. 
@@ -255,7 +253,7 @@ results = [i for i in range(1,1001) if [div for div in digits if i % div == 0]]
 print(results)
 
 
-'''
+
 '''
 # 23. Define a customised exception to handle not accepted values. 
 # You have the following user inputs and the Num_of_sections can not be less than 2.
