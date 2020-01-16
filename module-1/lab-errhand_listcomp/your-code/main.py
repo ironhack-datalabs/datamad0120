@@ -74,7 +74,7 @@ print(non_vowels)
 
 testString2 = 'The Quick Brown Fox Jumped Over The Lazy Dog'
 
-capital_letters = ''.join([i for i in testString2 if not i.isupper()])
+capital_letters = ''.join([i for i in testString2 if  i.isupper()])
 
 print(capital_letters)
 
@@ -98,7 +98,7 @@ print(consonants)
 
 #ME FALTA QUITAR LOS ARCHIVOS
 files_and_folders = os.listdir('/home/irene/datamad0120')
-folders = 
+folders = ''
 print(folders)
 
 
@@ -108,15 +108,20 @@ print(folders)
 
 import random
 
-random_lists = [random.randrange(0,100) for i in range(10)]
+#La lista principal es crear las 4 listas cumpliendo las condiciones de cada una
+random_lists = [[random.randrange(0,100) for i in range(10)] for i in range(4)]
 
-
+print(random_lists)
 
 
 #12. Flatten the following list of lists. Use flatten_list as the name of the output.
 # Remember to use list comprehensions and to print your results
 
 list_of_lists = [[1,2,3],[4,5,6],[7,8,9]]
+
+flatten_list = [e for i in list_of_lists for e in i]
+
+print(flatten_list)
 
 
 
@@ -127,14 +132,22 @@ list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', 
 ['30', '20', '30', '50', '10', '30', '20', '20', '20'], ['100', '100'], ['100', '100', '100', '100', '100'], \
 ['100', '100', '100', '100']]
 
+floats = [float(e) for i in list_of_lists for e in i]
+
+print(floats)
 
 
 
 #14. Handle the exception thrown by the code below by using try and except blocks. 
 
+try:
+    for i in ['a','b','c']:
+        print(i**2)    #He añadido los paréntesis aquí para que no me arrojara error
+except TypeError:
+    print('Unsopported operand type(s)')
+except SyntaxError:
+    print('Invalid syntax')
 
-for i in ['a','b','c']:
-    print(i**2)
 
 
 #15. Handle the exception thrown by the code below by using try and except blocks. 
@@ -144,7 +157,12 @@ for i in ['a','b','c']:
 x = 5
 y = 0
 
-z = x/y
+try:
+    z = x/y
+except ZeroDivisionError:
+    print('Division by zero')
+finally:
+    print('All Done')
 
 
 
