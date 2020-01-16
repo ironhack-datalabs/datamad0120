@@ -171,7 +171,9 @@ finally:
 # Check in provided resources the type of error you may use. 
 
 abc=[10,20,20]
-print(abc[3])
+
+try:
+    print(abc[3])
 
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
@@ -187,7 +189,7 @@ print(abc[3])
 f = open('testfile','r')
 f.write('Test write this')
 
-
+#está intentando escribir en un archivo abierto solo de lectura
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
@@ -223,15 +225,30 @@ def linux_interaction():
 
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
+results=[]
+for number in range(1,1001):
+    for digit in range(2,10):
+        if number % digit == 0:
+            results.append(number)
 
-
+print(results)
+print(set(results))
 
 
 # 23. Define a customised exception to handle not accepted values. 
 # You have the following user inputs and the Num_of_sections can not be less than 2.
 # Hint: Create a class derived from the pre-defined Exception class in Python
 
-Total_Marks = int(input("Enter Total Marks Scored: ")) 
-Num_of_Sections = int(input("Enter Num of Sections: "))
+class Num_of_Sections_Error(Exception):
+   """Base class for other exceptions"""
+   pass
+
+try:
+    Total_Marks = int(input("Enter Total Marks Scored: ")) 
+    Num_of_Sections = int(input("Enter Num of Sections: "))
+    if(Num_of_Sections < 2):
+        raise Num_of_Sections_Error
+except Num_of_Sections_Error:
+    print("El numero de secciones debe ser mayor de 2")
 
 
