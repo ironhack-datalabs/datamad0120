@@ -69,7 +69,6 @@ print(consonantes)
 # Remember to use list comprehensions and to print your results.
 
 import os
-
 files = os.listdir("/Users/soyungalgo/documents/github/datamad0120")
 print(files)
 
@@ -94,10 +93,79 @@ print(flatten_list)
 list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', '20'], \
 ['30', '20', '30', '50', '10', '30', '20', '20', '20'], ['100', '100'], ['100', '100', '100', '100', '100'], \
 ['100', '100', '100', '100']]
-floats = [float(b) for a in list_of_lists for b in a]
+floats = [float(b) for a in list_of_lists for b in a] #una lista
+floats2 = [[float(b)for b in a]for a in list_of_lists] #lista de listas
 print(floats)
+print(floats2)
 
 #14. Handle the exception thrown by the code below by using try and except blocks. 
+for i in ['a','b',5]:
+    try: 
+        print (i**2)
+    except TypeError:
+        print("TypeError tienes que introducir un int")
 
-for i in ['a','b','c']:
-    print i**2
+#15. Handle the exception thrown by the code below by using try and except blocks. 
+#Then use a finally block to print 'All Done.'
+# Check in provided resources the type of error you may use. 
+
+x = 5
+y = 0
+try:
+    z = x/y
+except ZeroDivisionError:
+    print("No puedes dividir entre cero, amigx....")
+
+#16. Handle the exception thrown by the code below by using try and except blocks. 
+# Check in provided resources the type of error you may use. 
+ 
+abc=[10,20,20]
+try:
+    print(abc[3])
+except IndexError:
+    print("IndexError, el index está fuera de rango")
+
+#17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
+# Hint: take a look on python input function. 
+# Check in provided resources the type of error you may use. 
+
+while True:
+    suma = 0
+    try:
+        entrada = int(input("Introduce números enteros y pulsa 1 cuando acabes "))
+        if entrada == 1:
+            break
+        suma += entrada
+    except ValueError as x:
+        print("Has introducido", (x))
+        print("Tienes que introducir un número entero")
+
+print("La suma de los números es {}" .format(suma))
+
+#18. Handle the exception thrown by the code below by using try and except blocks. 
+# Check in provided resources the type of error you may use. 
+import io
+try:
+    f = open('testfile','r')
+    f.write('Test write this')
+except FileNotFoundError:
+    print("No encuentro el archivo")
+except io.UnsupportedOperation:
+    print("No se puede escribir el archivo")
+
+#19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
+#Hint: the file could not exist and the data could not be convertable to int
+
+try:
+    fp = open('myfile.txt')
+    line = fp.readline()
+    i = int(s.strip())
+except FileNotFoundError:
+    print("El archivo no existe")
+except NameError:
+    print("NameError Sé que este no es el error que procede pero no sé continuar")
+    
+#20. The following function can only run on a Linux system. 
+# The assert in this function will throw an exception if you call it on an operating system other than Linux. 
+# Handle this exception using try and except blocks. 
+# You will probably need to import sys 
