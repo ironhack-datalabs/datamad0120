@@ -1,4 +1,3 @@
-'''
 #Example: 
 
 eggs = (1,3,8,3,2)
@@ -237,5 +236,5 @@ def linux_interaction():
 
 Total_Marks = int(input("Enter Total Marks Scored: ")) 
 Num_of_Sections = int(input("Enter Num of Sections: "))
-'''
+
 
