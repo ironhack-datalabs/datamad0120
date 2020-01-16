@@ -1,5 +1,5 @@
 import io   
-import sys
+import sys 
 #Example:  
 
 eggs = (1,3,8,3,2)
