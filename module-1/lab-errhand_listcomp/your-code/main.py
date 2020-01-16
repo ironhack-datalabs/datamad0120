@@ -1,5 +1,5 @@
 import io   
-import sys 
+import sys
 #Example:  
 
 eggs = (1,3,8,3,2)
@@ -9,7 +9,7 @@ my_listComprehension = [1/egg for egg in eggs]
 print(my_listComprehension)
 
 #Insert here the module/library import statements 
-import math 
+import math
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
 cuadrados = [i**2 for i in range(1,20)]
@@ -210,5 +210,5 @@ print(divisible_list)
 
 
 class Error(Exception):
-Total_Marks = int(input("Enter Total Marks Scored: "))  
+Total_Marks = int(input("Enter Total Marks Scored: ")) 
 Num_of_Sections = int(input("Enter Num of Sections: "))
