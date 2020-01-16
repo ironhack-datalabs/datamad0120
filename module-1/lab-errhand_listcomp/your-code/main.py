@@ -1,3 +1,5 @@
+import io   
+import sys
 #Example:  
 
 eggs = (1,3,8,3,2)
@@ -144,7 +146,7 @@ print("La suma de los números es {}" .format(suma))
 
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
-import io
+
 try:
     f = open('testfile','r')
     f.write('Test write this')
@@ -158,14 +160,55 @@ except io.UnsupportedOperation:
 
 try:
     fp = open('myfile.txt')
-    line = fp.readline()
-    i = int(s.strip())
+    line = f.readline()
+    i = int(f.strip())
 except FileNotFoundError:
     print("El archivo no existe")
-except NameError:
-    print("NameError Sé que este no es el error que procede pero no sé continuar")
+except AttributeError:
+    print("Un string no tiene atributo strip ")
     
 #20. The following function can only run on a Linux system. 
 # The assert in this function will throw an exception if you call it on an operating system other than Linux. 
 # Handle this exception using try and except blocks. 
 # You will probably need to import sys 
+
+def linux_interaction():
+    try:
+        assert ('linux' in sys.platform), "Function can only run on Linux systems."
+        print('Doing something.')
+    except AssertionError:
+        print("Esta función solo puede usarse en Linux")
+
+linux_interaction()
+
+#21.  Write a function that asks for an integer and prints the square of it. 
+# Hint: we need to continually keep checking until we get an integer.
+# Use a while loop with a try,except, else block to account for incorrect inputs.
+
+def cuadradonum():
+    while True:
+        try:
+            entrada = int(input("Introduce un número entero o un 0 si quieres salir"))
+            if entrada == 0:
+                break
+            print("El cuadrado del número es: ",entrada**2)   
+        except ValueError as x:
+            print("Has introducido", x)
+            print("Tienes que introducir un número entero")
+
+cuadradonum()
+    
+# 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
+# Use results as the name of the list 
+
+divisible_list = [i for i in range (0,1000) if True in [True for  n in range(2,9) if i%n == 0]]
+print(divisible_list)
+
+# 23. Define a customised exception to handle not accepted values. 
+# You have the following user inputs and the Num_of_sections can not be less than 2.
+# Hint: Create a class derived from the pre-defined Exception class in Python
+
+
+class Error(Exception):
+Total_Marks = int(input("Enter Total Marks Scored: ")) 
+Num_of_Sections = int(input("Enter Num of Sections: "))
