@@ -268,8 +268,9 @@ while True:
     if num_of_Sections <= minim:
       raise ValueTooSmallError
     break
-  except ValueTooSmallError:
+  except ValueTooSmallError as err:
     print("Number of Sections has to be greater than 2")
+    print(err)
 
  
 print("Congrats!")
