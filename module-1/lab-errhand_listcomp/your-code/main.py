@@ -8,45 +8,49 @@ print(my_listComprehension)
 
 #Insert here the module/library import statements 
 
-
+import math
 
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
 
 
-
+square = (x**2 for x in range(20))
+print (*square)
 
 #2. Calculate the first 50 power of two. Use power_of_two as the name of the list.
 # Remember to use list comprehensions and to print your results
 
-
+power_of_two = pow(2,50)
+print (power_of_two)
 
 
 #3. Calculate the square root of the first 100 numbers. Use sqrt as the name of the list.
 # You will probably need to install math library with pip and import it in this file.  
 # Remember to use list comprehensions and to print your results
+import math
 
-
-
+numero = 100
+raiz_cuadrada = math.sqrt(numero)
+print("La raíz cuadrada de {} es {}".format(numero, raiz_cuadrada))
 
 #4. Create this list [-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0]. Use my_list as the name of the list.
 # Remember to use list comprehensions and to print your results
 
-
+my_list = [-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0]
 
 
 #5. Find the odd numbers from 1-100. Use odds as the name of the list. 
 # Remember to use list comprehensions and to print your results
 
-
-
+odd = ([i for i in range(1,101) if i%2!=0])
+print (odd)
 
 #6. Find all of the numbers from 1-1000 that are divisible by 7. Use divisible_by_seven as the name of the list.
 # Remember to use list comprehensions and to print your results
 
-
-
+divisible_by_seven = 
+print (divisible_by_seven)
 
 #7. Remove all of the vowels in a string. Hint: make a list of the non-vowels. Use non_vowels as the name of the list.
 # Remember to use list comprehensions and to print your results
@@ -104,28 +108,29 @@ list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', 
 
 #14. Handle the exception thrown by the code below by using try and except blocks. 
 
-
-for i in ['a','b','c']:
-    print i**2
-
+try:
+    for i in ['a','b','c']:
+        print (i)**2
+except:
 
 #15. Handle the exception thrown by the code below by using try and except blocks. 
 #Then use a finally block to print 'All Done.'
 # Check in provided resources the type of error you may use. 
 
-x = 5
-y = 0
+    try:
+        x = 5
+        y = 0
 
-z = x/y
-
+        z = x/y
+    except:
 
 
 
 #16. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
 
-abc=[10,20,20]
-print(abc[3])
+        abc=[10,20,20]
+        print(abc[3])
 
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
@@ -148,8 +153,8 @@ f.write('Test write this')
 #Hint: the file could not exist and the data could not be convertable to int
 
 fp = open('myfile.txt')
-    line = f.readline()
-    i = int(s.strip())
+line = f.readline()
+i = int(s.strip())
 
 
 
