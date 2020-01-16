@@ -7,44 +7,49 @@ my_listComprehension = [1/egg for egg in eggs]
 print(my_listComprehension)
 
 #Insert here the module/library import statements 
-
-
-
+import os
+import random
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
-
+square=[i**2 for i in range(20)]
+print(square)
 
 
 
 #2. Calculate the first 50 power of two. Use power_of_two as the name of the list.
 # Remember to use list comprehensions and to print your results
-
+square=[2**i for i in range(50)]
+print(square)
 
 
 
 #3. Calculate the square root of the first 100 numbers. Use sqrt as the name of the list.
 # You will probably need to install math library with pip and import it in this file.  
 # Remember to use list comprehensions and to print your results
-
-
+import math
+sqrt=[i**2 for i in range(100)]
+print(sqrt)
 
 
 #4. Create this list [-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0]. Use my_list as the name of the list.
 # Remember to use list comprehensions and to print your results
-
+my_list=[i for i in range(-10,1)]
+print(my_list)
 
 
 
 #5. Find the odd numbers from 1-100. Use odds as the name of the list. 
 # Remember to use list comprehensions and to print your results
-
+odds=[i-1 for i in range(100) if i%2]
+print(odds)
 
 
 
 #6. Find all of the numbers from 1-1000 that are divisible by 7. Use divisible_by_seven as the name of the list.
 # Remember to use list comprehensions and to print your results
-
+divisible_by_seven=[i for i in range(1, 1000) if i % 7 == 0]
+print(divisible_by_seven)
 
 
 
@@ -53,28 +58,36 @@ print(my_listComprehension)
 # You can use the following test string but feel free to modify at your convenience
 
 teststring = 'Find all of the words in a string that are monosyllabic'
-
+non_vowel = [i for i in teststring if i not in ["a","e","i","o","u"," "]]
+print(non_vowel)
 
 
 
 #8. Find the capital letters (and not white space) in the sentence 'The Quick Brown Fox Jumped Over The Lazy Dog'. 
 # Use capital_letters as the name of the list.  
 # Remember to use list comprehensions and to print your results
-
+frase='The Quick Brown Fox Jumped Over The Lazy Dog'
+capital_letters = [i for i in frase if i not in frase.lower()]
+print(capital_letters)
 
 
 
 #9. Find all the consonants in the sentence 'The quick brown fox jumped over the lazy dog'.
 # Use consonants as the name of the list.
 # Remember to use list comprehensions and to print your results.
-
-
+frase='The Quick Brown Fox Jumped Over The Lazy Dog'
+consonants = [i for i in frase if i not in ["a","e","i","o","u"," "]]
+print(consonants)
 
 
 
 #10. Find the folders you have in your madrid-oct-2018 local repo. Use files as name of the list.  
 # You will probably need to import os library and some of its modules. You will need to make some online research.
 # Remember to use list comprehensions and to print your results.
+path="/Users/santiagobermejo/repo-ejemplo"
+direccion=os.listdir(path)
+files=[i for i in direccion]
+print(files)
 
 
 
@@ -82,14 +95,16 @@ teststring = 'Find all of the words in a string that are monosyllabic'
 #You will probably need to import random module
 # Remember to use list comprehensions and to print your results
 
-
+randomLists=[random.sample(range(0,100),k=10) for e in range(4)]
+print(randomLists)
 
 
 #12. Flatten the following list of lists. Use flatten_list as the name of the output.
 # Remember to use list comprehensions and to print your results
 
 list_of_lists = [[1,2,3],[4,5,6],[7,8,9]]
-
+flatten_list = [ n for s in list_of_lists for n in s]
+print(flatten_list)
 
 
 #13. Convert the numbers of the following nested list to floats. Use floats as the name of the list. 
@@ -98,15 +113,17 @@ list_of_lists = [[1,2,3],[4,5,6],[7,8,9]]
 list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', '20'], \
 ['30', '20', '30', '50', '10', '30', '20', '20', '20'], ['100', '100'], ['100', '100', '100', '100', '100'], \
 ['100', '100', '100', '100']]
-
-
+floats=[ float(n) for s in list_of_lists for n in s]
+print(floats)
 
 
 #14. Handle the exception thrown by the code below by using try and except blocks. 
 
-
-for i in ['a','b','c']:
-    print i**2
+try:
+    for i in ['a','b','c']:
+        print(i**2)
+except Exception as e:
+    print(e)
 
 
 #15. Handle the exception thrown by the code below by using try and except blocks. 
@@ -115,9 +132,12 @@ for i in ['a','b','c']:
 
 x = 5
 y = 0
-
-z = x/y
-
+try:
+    z = x/y
+except Exception as fail:
+    print(fail)
+finally:
+    print('All Done')
 
 
 
@@ -125,31 +145,50 @@ z = x/y
 # Check in provided resources the type of error you may use. 
 
 abc=[10,20,20]
-print(abc[3])
+try:
+    print(abc[3])
+except Exception as fail:
+    print(fail)
 
-
+'''
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
 
+while True:
+    try:
+        dividendo = int(input("Introduce el dividendo: "))
+        divisor = int(input("Introduce el divisor : "))
+        division=dividendo/divisor
+        print(division)
+        break
+         
+    except ZeroDivisionError as z:
+        print(z)
+    except ValueError as e:
+        print(e)
 
-
-
+'''
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
 
-f = open('testfile','r')
-f.write('Test write this')
+try:
+    f = open('testfile','r')
+    f.write('Test write this')
+except Exception as error:
+    print(error)
 
 
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
-
-fp = open('myfile.txt')
+try:
+    fp = open('myfile.txt')
     line = f.readline()
     i = int(s.strip())
+except Exception as e:
+    print(e)
 
 
 
@@ -160,9 +199,17 @@ fp = open('myfile.txt')
 # You will probably need to import sys 
 
 def linux_interaction():
-    assert ('linux' in sys.platform), "Function can only run on Linux systems."
-    print('Doing something.')
+    try:
+        assert ('linux' in sys.platform), "Function can only run on Linux systems."
+        print('Doing something.')
+    except Exception as e:
+        raise(e)
+try:
+    linux_interaction()
+except Exception as e:
+    print(e)
 
+ 
 
 # Bonus Questions:
 
@@ -185,7 +232,5 @@ def linux_interaction():
 # You have the following user inputs and the Num_of_sections can not be less than 2.
 # Hint: Create a class derived from the pre-defined Exception class in Python
 
-Total_Marks = int(input("Enter Total Marks Scored: ")) 
-Num_of_Sections = int(input("Enter Num of Sections: "))
-
-
+#Total_Marks = int(input("Enter Total Marks Scored: ")) 
+#Num_of_Sections = int(input("Enter Num of Sections: "))
