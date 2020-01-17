@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import io    
+=======
+import io   
+>>>>>>> 899e9f0d5de01fa78400cf84ba0a9388bb19eb83
 import sys
 #Example:  
 
@@ -209,6 +213,12 @@ print(divisible_list)
 # Hint: Create a class derived from the pre-defined Exception class in Python
 
 
+<<<<<<< HEAD
 #class Error(Exception):
 #Total_Marks = int(input("Enter Total Marks Scored: ")) 
 #Num_of_Sections = int(input("Enter Num of Sections: "))
+=======
+class Error(Exception):
+Total_Marks = int(input("Enter Total Marks Scored: ")) 
+Num_of_Sections = int(input("Enter Num of Sections: "))
+>>>>>>> 899e9f0d5de01fa78400cf84ba0a9388bb19eb83
