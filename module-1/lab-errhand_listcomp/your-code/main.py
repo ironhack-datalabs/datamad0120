@@ -132,9 +132,13 @@ list_of_lists = [['40', '20', '10', '30'], ['20', '20', '20', '20', '20', '30', 
 ['30', '20', '30', '50', '10', '30', '20', '20', '20'], ['100', '100'], ['100', '100', '100', '100', '100'], \
 ['100', '100', '100', '100']]
 
-floats = [float(e) for i in list_of_lists for e in i]
+floats = [float(e) for i in list_of_lists for e in i] #lista aplanada de floats
+
+floats2 = [[float(i) for i in n] for n in list_of_lists] #lista no aplanada de floats
+
 
 print(floats)
+print(floats2)
 
 
 
