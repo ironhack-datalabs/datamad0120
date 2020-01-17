@@ -174,11 +174,24 @@ abc=[10,20,20]
 
 try:
     print(abc[3])
+except IndexError:
+    print('list index out of range')
 
 
 #17. Handle at least two kind of different exceptions when dividing a couple of numbers provided by the user. 
 # Hint: take a look on python input function. 
 # Check in provided resources the type of error you may use. 
+
+x, y = input('Give me two numbers: ').split()
+
+try:
+    print('This is your first number ', x)
+    print('This is your second number ', y)
+    print('The division is equal to ', int(x)/int(y)) 
+except ValueError:
+    print('Not enough values (expected 2, got 1)')
+except SyntaxError:
+    print('Invalid syntax')
 
 
 
@@ -186,19 +199,26 @@ try:
 #18. Handle the exception thrown by the code below by using try and except blocks. 
 # Check in provided resources the type of error you may use. 
 
-f = open('testfile','r')
-f.write('Test write this')
-
-#está intentando escribir en un archivo abierto solo de lectura
+try:
+    f = open('testfile','r')
+    f.write('Test write this')
+except UnsupportedOperation:
+    print('Not writable')
 
 
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
 
-fp = open('myfile.txt')
+try:
+    fp = open('myfile.txt')
     line = f.readline()
     i = int(s.strip())
-
+except FileNotFoundError:
+    print('No such file or directory')
+except NameError:
+    print('name 'f' is not defined') #duda
+except ValueError:
+    print('invalid literal for int() with base 10')
 
 
 
@@ -208,7 +228,10 @@ fp = open('myfile.txt')
 # You will probably need to import sys 
 
 def linux_interaction():
-    assert ('linux' in sys.platform), "Function can only run on Linux systems."
+    if:
+        assert ('linux' in sys.platform), "Function can only run on Linux systems."
+    except Exception as e:
+        print('Function can only run on Linux systems.')
     print('Doing something.')
 
 
@@ -222,7 +245,6 @@ def linux_interaction():
 
 
 
-
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
 # Use results as the name of the list 
 results=[]
@@ -231,8 +253,8 @@ for number in range(1,1001):
         if number % digit == 0:
             results.append(number)
 
-print(results)
-print(set(results))
+print(results) #lista con todos los divisores para cada número
+print(set(results)) #set con los números que son divisores de algún número
 
 
 # 23. Define a customised exception to handle not accepted values. 
@@ -250,5 +272,4 @@ try:
         raise Num_of_Sections_Error
 except Num_of_Sections_Error:
     print("El numero de secciones debe ser mayor de 2")
-
 
