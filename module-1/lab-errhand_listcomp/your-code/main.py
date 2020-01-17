@@ -177,7 +177,7 @@ def meteUnNumero():
             print(e)
             print("No se puede dividir por cero")
         except ValueError as ve:
-            raise ve
+            print (ve)
             print("Tiene que ser un número")
 
 meteUnNumero()
