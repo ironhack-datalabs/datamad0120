@@ -98,8 +98,11 @@ print(consonants)
 
 #ME FALTA QUITAR LOS ARCHIVOS
 files_and_folders = os.listdir('/home/irene/datamad0120')
-folders = ''
+from glob import glob
+folders = glob("/home/irene/datamad0120/*/")
 print(folders)
+
+
 
 
 #11. Create 4 lists of 10 random numbers between 0 and 100 each. Use random_lists as the name of the list. 
