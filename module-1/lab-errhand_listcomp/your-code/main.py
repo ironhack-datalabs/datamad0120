@@ -216,7 +216,16 @@ def linux_interaction():
 #21.  Write a function that asks for an integer and prints the square of it. 
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
-
+def square():
+    
+    while(True):
+        try:
+            numero = int(input("Escriba un número: "))
+            print(int(numero)**2)
+            break
+        except Exception as e:
+            print(e)
+square()
 
 
 
@@ -224,13 +233,25 @@ def linux_interaction():
 # Use results as the name of the list 
 
 
+{num : j for num in range(1,200) for j in range(2,9) if num % j == 0}
 
 
 # 23. Define a customised exception to handle not accepted values. 
 # You have the following user inputs and the Num_of_sections can not be less than 2.
 # Hint: Create a class derived from the pre-defined Exception class in Python
 
-Total_Marks = int(input("Enter Total Marks Scored: ")) 
-Num_of_Sections = int(input("Enter Num of Sections: "))
-
-
+def pidenumero():
+    try:
+        Total_Marks = int(input("Enter Total Marks Scored: ")) 
+        Num_of_Sections = int(input("Enter Num of Sections: "))
+        if Num_of_Sections < 2 :
+            print('Num of sections no puede ser menor de 2')
+        elif(Num_of_Sections > 2):
+            print(Total_Marks,Num_of_Sections)
+        else:
+            raise MiError
+    except MiError:
+        print('Error al introducir numero')
+    except:
+        print('Hubo un error inesperado.')
+pidenumero()
