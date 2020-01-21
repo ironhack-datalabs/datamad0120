@@ -1,0 +1,1 @@
+DELETE FROM Cars WHERE (`idCars` = '5') and (`VIN` = 'DAM41UDN3CHU2WVF6');
