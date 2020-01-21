@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `lab_mysql`.`Customers` (
   `idCustomers` INT NOT NULL,
   `Customer ID` INT NULL,
   `Name` VARCHAR(45) NULL,
-  `Phone` INT NULL,
+  `Phone` VARCHAR(45) NULL,
   `Email` VARCHAR(45) NULL,
   `Address` VARCHAR(45) NULL,
   `City` VARCHAR(45) NULL,
@@ -54,7 +54,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lab_mysql`.`Salespersons` (
   `idSalespersons` INT NOT NULL,
-  `Staff ID` INT NULL,
+  `Staff ID` VARCHAR(45) NULL,
   `Name` VARCHAR(45) NULL,
   `Store` VARCHAR(45) NULL,
   PRIMARY KEY (`idSalespersons`))
