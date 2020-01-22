@@ -1,4 +1,4 @@
--- CHALLENGE 1--
+-- CHALLENGE 1 --
 
     -- Hago INNER JOIN de los IDs de los autores que están en la lista titleauthor
     -- para sacar el title_id
@@ -29,7 +29,7 @@ INNER JOIN publishers ON titles.pub_id=publishers.pub_id;
 
 
 
--- CHALLENGE 2--
+-- CHALLENGE 2 --
 
     -- De titleauthor relaciono los autores, los títulos y los publishers con Join. De ahí agrupo por publishers
     -- como hay varios autores para cada publisher, agrupo también por autores
@@ -52,7 +52,7 @@ GROUP BY titles.pub_id, titleauthor.au_id;
         -- He hecho más joins para añadir las columnas que me faltaban por añadir
 
 
--- CHALLENGE 3--
+-- CHALLENGE 3 --
 
     -- Planteamiento análogo
 
@@ -64,7 +64,7 @@ GROUP BY authors.au_id
 ORDER BY TOTAL DESC
 LIMIT 3;
 
--- CHALLENGE 4--
+-- CHALLENGE 4 --
 
 SELECT authors.au_id `Author ID`, authors.au_lname `Last Name`, authors.au_fname `Name`, SUM(sales.qty) `TOTAL`
 FROM titleauthor
@@ -72,6 +72,48 @@ INNER JOIN sales ON sales.title_id=titleauthor.title_id
 RIGHT JOIN authors ON authors.au_id=titleauthor.au_id
 GROUP BY authors.au_id
 ORDER BY TOTAL DESC;
+ 
+-- BONUS --
+
+    --Saco tablas con las columnas con las que voy a operar
+
+SELECT
+	authors.au_id `Author ID`, 
+    authors.au_lname `Last Name`, 
+    authors.au_fname `Name`, 
+    titles.advance `Advance`, 
+    sales.qty, 
+    titles.price, 
+    titles.royalty, 
+    titleauthor.royaltyper,
+    titleauthor.au_ord
+FROM titleauthor
+INNER JOIN titles ON titles.title_id=titleauthor.title_id
+INNER JOIN sales ON sales.title_id=titleauthor.title_id
+INNER JOIN authors ON authors.au_id=titleauthor.au_id;
+
+    -- RESULTADO FINAL
+
+SELECT
+	authors.au_id `Author ID`, 
+    authors.au_lname `Last Name`, 
+    authors.au_fname `Name`, 
+    sales.qty * titles.price * titles.royalty * titleauthor.royaltyper * 0.01 `Royalties`,
+    titles.advance * titleauthor.royaltyper `Advance x Royaltyper`,
+    sales.qty * titles.price * titles.royalty * titleauthor.royaltyper * 0.01 + titles.advance * titleauthor.royaltyper `Profit`
+FROM titleauthor
+INNER JOIN titles ON titles.title_id=titleauthor.title_id
+INNER JOIN sales ON sales.title_id=titleauthor.title_id
+INNER JOIN authors ON authors.au_id=titleauthor.au_id
+GROUP BY authors.au_id 
+ORDER BY PROFIT DESC;
+
+    -- Opero y saco tablas con resultados. Me da error a la hora de agrupar por el autor. Dice que hay argumentos en 
+    -- el SELECT que deben estar en Group By y no lo entiendo.
+
+
+
+
 
 
 
