@@ -54,6 +54,8 @@ GROUP BY titles.pub_id, titleauthor.au_id;
 
 -- CHALLENGE 3--
 
+    -- Planteamiento análogo
+
 SELECT authors.au_id `Author ID`, authors.au_lname `Last Name`, authors.au_fname `Name`, SUM(sales.qty) `TOTAL`
 FROM titleauthor
 INNER JOIN sales ON sales.title_id=titleauthor.title_id
@@ -61,6 +63,17 @@ INNER JOIN authors ON authors.au_id=titleauthor.au_id
 GROUP BY authors.au_id
 ORDER BY TOTAL DESC
 LIMIT 3;
+
+-- CHALLENGE 4--
+
+SELECT authors.au_id `Author ID`, authors.au_lname `Last Name`, authors.au_fname `Name`, SUM(sales.qty) `TOTAL`
+FROM titleauthor
+INNER JOIN sales ON sales.title_id=titleauthor.title_id
+RIGHT JOIN authors ON authors.au_id=titleauthor.au_id
+GROUP BY authors.au_id
+ORDER BY TOTAL DESC;
+
+
 
 
 
