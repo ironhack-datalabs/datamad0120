@@ -1,4 +1,3 @@
- /*
 #lab-mysql-select
  
  #CHALLENGE 1
@@ -75,4 +74,3 @@ SELECT
 	GROUP BY A.au_id
     ORDER BY TOTAL desc
 
-	*/
