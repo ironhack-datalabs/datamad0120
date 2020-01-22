@@ -74,3 +74,28 @@ SELECT
 	GROUP BY A.au_id
     ORDER BY TOTAL desc
 
+
+
+#BONUS
+
+SELECT 
+
+CONCAT(A.au_fname," ",A.au_lname) as "AUTHOR",
+count(T.title) AS "TOTAL TITLES",
+sum(ROUND((T.advance*TA.royaltyper/100))) AS "ADVANCE", 
+sum(ROUND(S.qty*T.price*R.royalty/100*TA.royaltyper/100)) as "ROYALTIES", 
+sum(ROUND(S.qty*T.price*R.royalty/100*TA.royaltyper/100)) + sum(ROUND((T.advance*TA.royaltyper/100))) as "PROFIT"
+	
+    FROM titles as T
+    LEFT JOIN titleauthor as TA
+    ON T.title_id = TA.title_id
+    LEFT JOIN authors as A
+    ON TA.au_id = A.au_id
+    RIGHT JOIN sales as S
+    ON S.title_id = T.title_id
+    RIGHT JOIN roysched as R
+    ON T.title_id = R.title_id
+    
+    GROUP BY A.au_id
+    ORDER BY PROFIT desc
+	LIMIT 3
