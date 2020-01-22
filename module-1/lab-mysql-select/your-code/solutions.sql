@@ -40,4 +40,10 @@ ORDER BY `TOTAL` DESC
 LIMIT 3;
 
 CHALLENGE 4:
+SELECT authors.au_id as `AUTHOR ID`, authors.au_lname as `LAST NAME`, authors.au_id as `FIRST NAME`, IFNULL(sum(sales.qty),0) as `TOTAL`
+FROM authors
+LEFT JOIN titleauthor ON titleauthor.au_id=authors.au_id
+LEFT JOIN sales on sales.title_id=titleauthor.title_id 
+GROUP BY `AUTHOR ID`
+ORDER BY `TOTAL` DESC;
 
