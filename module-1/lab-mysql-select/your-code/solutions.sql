@@ -57,9 +57,25 @@ SELECT authors.au_id AS AUTHOR_ID,
     GROUP BY AUTHOR_ID
     ORDER BY TOTAL DESC
 	LIMIT 3
+
+CHALLENGE 4:
 */
 
+SELECT authors.au_id AS AUTHOR_ID, 
+	au_lname AS LAST_NAME, 
+	authors.au_fname AS FIRST_NAME,
+    IFNULL(SUM(sales.qty),0) AS TOTAL
 
+	FROM authors
+    
+    LEFT JOIN publications.titleauthor
+    ON authors.au_id = titleauthor.au_id
+    
+    LEFT JOIN publications.sales
+    ON titleauthor.title_id = sales.title_id
+    
+    GROUP BY AUTHOR_ID
+    ORDER BY TOTAL DESC
     
     
     
