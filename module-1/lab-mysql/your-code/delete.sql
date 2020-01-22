@@ -1,1 +1,1 @@
-DELETE FROM Cars WHERE "VIN" = "lab_mysql.DAM41UDN3CHU2WVF6"
+DELETE FROM Cars WHERE idCars = "4" 
