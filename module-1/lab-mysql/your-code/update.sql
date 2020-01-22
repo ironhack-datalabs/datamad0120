@@ -8,5 +8,4 @@ UPDATE Customers
 UPDATE Customers
 	SET `Email` = 'hello@napoleon.me' WHERE ID = "3";
 
-DELETE from Cars WHERE ID = "5";
 	
