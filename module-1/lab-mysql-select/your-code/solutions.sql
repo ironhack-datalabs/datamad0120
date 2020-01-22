@@ -47,4 +47,4 @@ select
         left join titles as t on ta.title_id = t.title_id 
         left join sales as s on t.title_id = s.title_id
 group by LAST_NAME, FIRST_NAME
-order by SALES_BOOKS desc
+order by SALES_BOOKS desc;
