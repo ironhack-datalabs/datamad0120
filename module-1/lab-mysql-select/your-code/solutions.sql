@@ -98,9 +98,9 @@ SELECT
 	authors.au_id `Author ID`, 
     authors.au_lname `Last Name`, 
     authors.au_fname `Name`, 
-    sales.qty * titles.price * titles.royalty * titleauthor.royaltyper * 0.01 `Royalties`,
-    titles.advance * titleauthor.royaltyper `Advance x Royaltyper`,
-    sales.qty * titles.price * titles.royalty * titleauthor.royaltyper * 0.01 + titles.advance * titleauthor.royaltyper `Profit`
+    sales.qty * titles.price * titles.royalty * titleauthor.royaltyper * 0.0001 `Royalties`,
+    titles.advance * titleauthor.royaltyper * 0.01 `Advance x Royaltyper`,
+    sales.qty * titles.price * titles.royalty * titleauthor.royaltyper * 0.0001 + titles.advance * titleauthor.royaltyper * 0.01 `Profit`
 FROM titleauthor
 INNER JOIN titles ON titles.title_id=titleauthor.title_id
 INNER JOIN sales ON sales.title_id=titleauthor.title_id
@@ -110,7 +110,6 @@ ORDER BY PROFIT DESC;
 
     -- Opero y saco tablas con resultados. Me da error a la hora de agrupar por el autor. Dice que hay argumentos en 
     -- el SELECT que deben estar en Group By y no lo entiendo.
-
 
 
 
