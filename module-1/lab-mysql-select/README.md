@@ -2,6 +2,7 @@
 
 # Lab | MySQL Select
 
+
 ## Introduction
 
 In this lab you will practice how to use the MySQL `SELECT` statement which will be extremely useful in your future work as a data analyst/scientist/engineer. **You will use the `publications` database that we used in the *Joins and Relationships* lesson.** In case you haven't had that database, [here](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/data-static/data/module-1/publications.sql.zip) is the link to download the database file.
