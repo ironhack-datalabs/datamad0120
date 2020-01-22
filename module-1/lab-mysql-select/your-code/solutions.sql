@@ -1,105 +1,36 @@
 /*CHALLENGE 1*/
 /*
 SELECT
-	C.au_id AS Author_ID,
-    C.au_lname AS Last_Name,
-    C.au_fname AS First_Name,
-    C.title AS Title,
-    D.pub_name AS Publisher
+	A.au_lname AS Last_Name,
+	A.au_fname AS First_Name,
+	A.au_id AS Author_ID,
+    TI.title AS Title,
+    PU.pub_name AS Publisher
 FROM
-	(SELECT
-		B.au_lname,
-		B.au_fname,
-        B.au_id,
-		T.title,
-        T.pub_id
-	FROM
-		(SELECT
-			au_lname,
-			au_fname,
-			title_id,
-            A.au_id
-		FROM
-			(SELECT  
-				au_lname,
-				au_fname,
-				au_id
-			FROM authors) A
-		INNER JOIN
-			(SELECT
-				au_id,
-				title_id
-			FROM
-				titleauthor) TA
-		ON A.au_id = TA.au_id) B
-	INNER JOIN
-		(SELECT
-			title,
-			title_id,
-			pub_id
-		FROM
-			titles) T
-	ON B.title_id = T.title_id) C
-INNER JOIN
-	(SELECT 
-		pub_name,
-        pub_id
-	 FROM publishers) D
-ON C.pub_id = D.pub_id
+	authors AS A
+INNER JOIN titleauthor AS TA ON A.au_id = TA.au_id
+INNER JOIN titles AS TI ON TA.title_id = TI.title_id
+INNER JOIN publishers AS PU on TI.pub_id = PU.pub_id
 */
 
 /*CHALLENGE 2*/
 
 /*
 SELECT
-	C.au_id AS Author_ID,
-    C.au_lname AS Last_Name,
-    C.au_fname AS First_Name,
-    COUNT(C.Title),
-    D.pub_name AS Publisher
+	A.au_lname AS Last_Name,
+	A.au_fname AS First_Name,
+	A.au_id AS Author_ID,
+    COUNT(TI.Title),
+    PU.pub_name AS Publisher
 FROM
-	(SELECT
-		B.au_lname,
-		B.au_fname,
-        B.au_id,
-		T.title,
-        T.pub_id
-	FROM
-		(SELECT
-			au_lname,
-			au_fname,
-			title_id,
-            A.au_id
-		FROM
-			(SELECT  
-				au_lname,
-				au_fname,
-				au_id
-			FROM authors) A
-		INNER JOIN
-			(SELECT
-				au_id,
-				title_id
-			FROM
-				titleauthor) TA
-		ON A.au_id = TA.au_id) B
-	INNER JOIN
-		(SELECT
-			title,
-			title_id,
-			pub_id
-		FROM
-			titles) T
-	ON B.title_id = T.title_id) C
-INNER JOIN
-	(SELECT 
-		pub_name,
-        pub_id
-	 FROM publishers) D
-ON C.pub_id = D.pub_id
-GROUP BY Author_ID, 
+	authors AS A
+INNER JOIN titleauthor AS TA ON A.au_id = TA.au_id
+INNER JOIN titles AS TI ON TA.title_id = TI.title_id
+INNER JOIN publishers AS PU on TI.pub_id = PU.pub_id
+GROUP BY
 	Last_Name,
     First_Name,
+    Author_ID, 
     Publisher
 */    
 
