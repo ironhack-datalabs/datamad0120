@@ -49,11 +49,10 @@ SELECT authors.au_id as `AUTHOR ID`,
 authors.au_lname as "LAST NAME",
 authors.au_fname as "FIRST NAME",
 titles.title as "TITLE",
-SUM(sales.qty) as `Total`
+IFNULL(SUM(sales.qty), 0) as `Total`
     FROM authors
-    INNER JOIN titleauthor
+    LEFT JOIN titleauthor
     ON authors.au_id = titleauthor.au_id
     LEFT JOIN titles ON titles.title_id = titleauthor.title_id
     LEFT JOIN sales ON sales.title_id = titles.title_id
-	ORDER BY `Total` DESC
-    LIMIT 23;
+	GROUP BY authors.au_id ORDER BY `Total` DESC;
