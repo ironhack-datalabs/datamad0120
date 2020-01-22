@@ -11,11 +11,13 @@ INSERT INTO Cars (CarID, VIN, Manufacturer, Model, Year, Color)
 #ADD custInd INT;
 	
 
-INSERT INTO Customers (custInd, CustomerID, Name, PhoneNumber, Email, Adress, City, State/Province, country, zipCode)
+INSERT INTO Customers (custInd, CustomerID, Name, PhoneNumber, Email, Adress, City, `State/Province`, country, zipCode)
 	VALUES (0, 10001, 'Pablo Picasso', '+34 636 17 63 82', '-', 'Paseo de la Chopera, 14', 'Madrid', 'Madrid', 'Spain', 28045), (1, 20001, 'Abraham Lincoln', '+1 305 907 7086', '-', '120 SW 8th St', 'Miami', 'Florida', 'United States', 33130), (2, 30001, 'Napoléon Bonaparte', '+33 1 79 75 40 00', '-', '40 Rue du Colisée', 'Paris', 'Île-de-France', 'France', 75008)
 
 
-#Esto ultimo me da error por el / en la variable State/Province
+
+
+
 
 
 
