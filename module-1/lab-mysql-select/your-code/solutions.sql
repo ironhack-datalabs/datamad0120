@@ -59,7 +59,7 @@ SELECT authors.au_id AS AUTHOR_ID,
 	LIMIT 3
 
 CHALLENGE 4:
-*/
+
 
 SELECT authors.au_id AS AUTHOR_ID, 
 	au_lname AS LAST_NAME, 
@@ -76,6 +76,6 @@ SELECT authors.au_id AS AUTHOR_ID,
     
     GROUP BY AUTHOR_ID
     ORDER BY TOTAL DESC
-    
+*/
     
     
