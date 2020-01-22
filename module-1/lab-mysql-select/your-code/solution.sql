@@ -66,3 +66,38 @@ group by A.AU_ID,
 order by ventas desc
 -- LIMIT 23
 ;
+
+
+
+
+select D.AU_ID as `AUTHOR ID`,
+    D.au_lname as `LAST NAME`,
+	D.au_fname as `FIRST NAME`,
+    sum(round(A.ventas_a_repartir*royaltyper/100 + B.advance*royaltyper/100,2)) as PROFIT
+from 
+	(select T.TITLE_ID, T.price * S.qty * T.royalty/100 as ventas_a_repartir
+	from titles T, sales S
+	where T.TITLE_ID = S.TITLE_ID) A,
+	titles B,
+    titleauthor C,
+    authors D
+where A.TITLE_ID = B.TITLE_ID
+	and B.TITLE_ID = C.TITLE_ID
+    and C.AU_ID = D.AU_ID
+group by D.AU_ID,
+    D.au_lname,
+	D.au_fname 
+order by PROFIT DESC
+LIMIT 3
+
+
+
+
+
+
+
+
+
+
+
+
