@@ -1,4 +1,4 @@
-
+-- Challenge 1
 select A.AU_ID,
 	A.AU_LNAME,
     A.AU_FNAME,
@@ -13,7 +13,7 @@ where A.AU_ID = TA.AU_ID
     and T.PUB_ID = P.PUB_ID;
 
 
-
+-- Challenge 2
 select A.AU_ID,
 	A.AU_LNAME,
     A.AU_FNAME,
@@ -33,7 +33,7 @@ group by A.AU_ID,
     -- T.TITLE,
     P.PUB_NAME
 ;
-
+-- Challenge 3
 select A.AU_ID,
 	A.AU_LNAME,
     A.AU_FNAME,
@@ -51,7 +51,7 @@ group by A.AU_ID,
 order by ventas desc
 LIMIT 3
 ;
-
+-- Challenge 4
 select A.AU_ID,
 	A.AU_LNAME,
     A.AU_FNAME,
@@ -69,7 +69,7 @@ order by ventas desc
 
 
 
-
+-- INTENTO DE BONUS
 select D.AU_ID as `AUTHOR ID`,
     D.au_lname as `LAST NAME`,
 	D.au_fname as `FIRST NAME`,
