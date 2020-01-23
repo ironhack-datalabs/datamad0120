@@ -8,7 +8,7 @@
 In this lab, we will implement what we have learned about functional programming using the map, reduce, and filter functions. These functions allow us to pass an input and a transformation to a function and produce an output. 
 
 ## Getting Started
-
+ 
 Open the `main.ipynb` file in the `your-code` directory. Follow the instructions and add your code and explanations as necessary. By the end of this lab, you will have learned about mapping, reducing, and filtering as well as applying functions in Pandas.
 
 ## Deliverables
