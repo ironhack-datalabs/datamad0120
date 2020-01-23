@@ -1,4 +1,8 @@
 
+/************************/
+/***    challenge1    ***/
+/************************/
+
 
 -- drop table STEP1;
 CREATE TEMPORARY TABLE step1
@@ -38,6 +42,9 @@ from step3 A
 group by AU_ID
 order by royalties_totales DESC;
 
+/************************/
+/***    challenge2    ***/
+/************************/
 
 -- ROYALTIES CON TABLAS ANIDADAS
 select A.AU_ID, sum(advance_portion+royalties_aggre) as royalties_totales
@@ -61,6 +68,9 @@ from (
 group by AU_ID
 order by royalties_totales DESC;
 
+/************************/
+/***    challenge3    ***/
+/************************/
 -- PERMANENT TABLE 
 CREATE TABLE most_profiting_authors as
 select A.AU_ID, sum(advance_portion+royalties_aggre) as royalties_totales
