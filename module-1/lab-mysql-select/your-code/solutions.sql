@@ -1,4 +1,5 @@
 -- Challenge 1
+
 SELECT au.au_id, au.au_fname, au.au_lname, t.title, p.pub_name FROM publications.authors as au
 	LEFT JOIN titleauthor as ta ON au.au_id=ta.au_id
     INNER JOIN titles as t On ta.title_id=t.title_id
