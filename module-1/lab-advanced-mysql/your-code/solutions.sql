@@ -1,12 +1,8 @@
-  /* VENTAS POR LIBRO
+SELECT a.au_id, sum(a.pasta_roy) + sum(a.pasta_adv) AS total
+FROM
 
-SELECT sales.title_id AS LIBRO, SUM(sales.qty) AS VENTAS
-	FROM publications.sales
-    GROUP BY sales.title_id
-    JOIN 
-    
-CREATE TEMPORARY TABLE publications.pasta
-SELECT 	titles.title_id, titleauthor.au_id, IFNULL(titles.price,0) price,
+
+(SELECT titles.title_id, titleauthor.au_id, IFNULL(titles.price,0) price,
 		sales.qty, IFNULL(titles.advance,0) advance, IFNULL(titles.royalty,0) royalty,
 		titleauthor.royaltyper tiporoyal,
         titles.price * sales.qty * titles.royalty / 100 * titleauthor.royaltyper / 100 AS pasta_roy,
@@ -14,11 +10,8 @@ SELECT 	titles.title_id, titleauthor.au_id, IFNULL(titles.price,0) price,
         
 	FROM publications.titles
 		JOIN publications.titleauthor ON titles.title_id = titleauthor.title_id
-        JOIN publications.sales ON sales.title_id = titles.title_id;
-        */
-SELECT pasta.au_id, sum(pasta.pasta_roy) + sum(pasta.pasta_adv)
-	FROM pasta
-    GROUP BY pasta.au_id
+        JOIN publications.sales ON sales.title_id = titles.title_id ) AS a 
         
-        
-        
+	
+GROUP BY a.au_id
+ORDER BY total DESC;
