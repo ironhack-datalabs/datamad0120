@@ -1,6 +1,6 @@
 ![Ironhack logo](https://i.imgur.com/1QgrNNw.png)
 
-# Lab | Lambda Functions
+# Lab | Lambda Functions 
 
 ## Introduction
 
