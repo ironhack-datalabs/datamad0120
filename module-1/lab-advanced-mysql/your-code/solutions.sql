@@ -45,4 +45,3 @@ select
 group by author_id
 order by profits desc 
 );
-
