@@ -76,7 +76,7 @@ SELECT AUTHOR_ID,
 
 ----------------------------------------------CHALLENGE 3------------------------------------------------
 
-CREATE VIEW most_profiting_authors AS
+CREATE TABLE most_profiting_authors AS
 
 	SELECT AUTHOR_ID,
 		IFNULL(SUM(titles.advance + TOTAL_ROYALTIES),0) AS TOTAL_PROFIT
