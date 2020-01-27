@@ -1,0 +1,94 @@
+### W2-D4 - Data Cleaning
+
+## 0. Basic Operations
+- Examining data: `df.head()`,`df.describe()`
+- Remove duplicates `df.drop_duplicates()`
+- Fill nulls with value `fillna(<value>)`
+- Sort values: `df.sort_values("column", ascending=False)`
+- Rename columns, change columns order
+```python
+cols = { 
+    'Manufacturer':'Make',
+    'Displacement':'Engine Displacement'
+}
+df = df.rename(columns=cols)
+```
+- Data types:
+  - Check column types with `df.dtypes`, 
+  - Change type with `.astype('object')`
+  
+## 1. Fill Missing values
+- Calculate total missing values per columnn`df.isnull().sum()`
+- Remove columnns: `df = df.drop(columns=["a","b","c"])`
+- Drop cols with more thant 10000 nulls:
+```python
+null_cols = df.isnull().sum()
+drop_cols = list(null_cols[null_cols > 10000].index)
+data = data.drop(drop_cols, axis=1)
+```
+
+## 2. Extreme Values and Outliers
+
+Calculate IQR (interquartile range):
+
+```python
+stats = data.describe().transpose()
+stats['IQR'] = stats['75%'] - stats['25%']
+stats
+```
+
+## 3. Low variance columns
+Remove columns with low variance: `np.percentile()`, 
+[https://en.wikipedia.org/wiki/Percentile]
+
+```python
+low_variance = []
+
+for col in data._get_numeric_data():
+    minimum = min(data[col])
+    ninety_perc = np.percentile(data[col], 90)
+    if ninety_perc == minimum:
+        low_variance.append(col)
+
+print(low_variance)
+```
+
+## 4. Dataframe transformation
+- Filter records `&`,`|`
+- Data normalization: `str.startswith`
+- Export dataframe to file. `orient` parameter & data output
+  - `df.to_json()`, `df.to_csv()`
+  - [https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_json.html]
+- Where operator:
+    `np.where(animals['brainwt'] != 0, animals['bodywt'] / animals['brainwt'], 0)`
+
+## 5. Binning
+
+* **Equal width bins:** the range for each bin is the same size.
+* **Equal frequency bins:** approximately the same number of records in each bin.
+* **Custom-sized bins:** the user explicitly defines where they want the cutoff for each bin to be.
+
+`bins = pd.cut(data['Combined MPG'],5, labels=mpg_labels)`
+
+## 6. Transform data with apply
+
+[https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.apply.html]
+
+- `pd.apply()` can be applied to entire dataframe or series
+- axis
+- broadcasting
+
+## 7. Other utilities
+- One hot encoding: `pd.get_dummies(data['Drivetrain'])`
+- Combining dataframes: `concat`,`groupby+agg`,`merge`
+- Preparing dataframe for special cases: `melting`
+
+## 8. Data aggregations & grouping
+- Basic aggregation: `vehicles.groupby(['Transmission']).mean()`
+- Custom agg: 
+```python 
+from scipy import stats
+agg_mode = lambda x: stats.mode(x)[0]
+vehicles.groupby("Transmission")["Vehicle Class"].agg(agg_mode)
+```
+
