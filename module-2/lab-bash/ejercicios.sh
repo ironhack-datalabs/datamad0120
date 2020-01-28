@@ -60,7 +60,8 @@ Cuenta el número de apariciones del string et en at.txt dentro de la carpeta lo
 grep -o et at.txt | wc -l
 
 Cuenta el número de apariciones del string et en todos los archivos del directorio lorem-copy.
-grep -o et ./lorem-copy/* | wc -l
+grep -o et ./lorem-copy/* | wc -l 
+
 
 
 
