@@ -60,3 +60,4 @@ find 'et' | wc -l
 
 # Cuenta el número de apariciones del string et en todos los archivos del directorio lorem-copy
 grep -c 'et' lorem-copy/{at.txt,lorem.txt,sed.txt}
+
