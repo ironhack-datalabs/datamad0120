@@ -86,5 +86,5 @@ ricardoafonsospinola@Ricardos-MacBook-Air lorem % grep -c "et" at.txt
 
 *  Cuenta el número de apariciones del string `et` en todos los archivos del directorio lorem-copy. 
 
-
-
+ricardoafonsospinola@Ricardos-MacBook-Air lab-bash % grep -o et ./lorem-copy/* | wc -l
+      17
