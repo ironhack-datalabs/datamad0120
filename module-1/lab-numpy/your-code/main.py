@@ -37,22 +37,36 @@ print(d)
 #12. Multiply a and c. Assign the result to e.
 e = a*c
 
-
 #13. Does e equal to a? Why or why not?
 print(a==e) 
-
+print("It is equal because c is an array with all values 1")
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
-
-
-
+d_max = d.max()
+d_min = d.min()
+d_mean = d.mean()
+print(d_max, d_min, d_mean)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
+f = np.empty((2,3,5), dtype = int)
+d = d.reshape(-1)
+f = f.reshape(-1)
+for v in d:
+    if (v > d_min) and (v < d_mean) :
+        f[i] = 25
+    elif (v > d_mean) and (v < d_max):
+        f[i] = 75 
+    elif v == d_mean:
+        f[i] = 50
+    elif v == d_min:
+        f[i] = 0
+    elif v == d_max:
+        f[i] = 100
+    i += 1
+f = f.reshape(2,3,5)
+print(f)
 
-
-
-"""
-#16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
+'''#16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
 If a value in d is larger than d_mean but smaller than d_max, assign 75 to the corresponding value in f.
 If a value equals to d_mean, assign 50 to the corresponding value in f.
 Assign 0 to the corresponding value(s) in f for d_min in d.
