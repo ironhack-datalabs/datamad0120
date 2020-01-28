@@ -64,26 +64,35 @@ print(d)
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
-
+''' d es la matriz a sumando 1 a todos los valores. '''
 
 
 #12. Multiply a and c. Assign the result to e.
 
-
+e = a * c
+print(e)
 
 #13. Does e equal to a? Why or why not?
 
-
+'''e es igual a porque e es una matriz de a multiplicada por 1, lo que devuelve el mismo valor'''
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
+d_max = np.max(d)
+print(d_max)
 
+d_min = np.min(d)
+print(d_min)
 
+d_mean = np.mean(d)
+print(d_mean)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
+f = np.empty([2,3,5])
 
+print(f)
 
 
 """
@@ -96,6 +105,25 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
 
+#Está hecho a medias con Xabier :)
+
+newZ = [[[]for j in range(3)] for i in range(2)]
+for elem in range(2):
+  for elem2 in range(3):
+    for elem3 in range(5):
+      dFin = (d[elem][elem2][elem3])
+      if dFin > d_min and dFin < d_mean:
+        newZ[elem][elem2].append(25)
+      elif dFin > d_min and dFin < d_max:
+        newZ[elem][elem2].append(75)
+      elif dFin == d_mean:
+        newZ[elem][elem2].append(50)
+      elif dFin == d_min:
+        newZ[elem][elem2].append(0)
+      elif dFin == d_max:
+        newZ[elem][elem2].append(100)
+
+f = np.asarray(newZ)
 
 
 
@@ -120,6 +148,8 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
 
+print(d)
+print(f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -133,3 +163,22 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
+newZ = [[[]for j in range(3)] for i in range(2)]
+for elem in range(2):
+  for elem2 in range(3):
+    for elem3 in range(5):
+      dFin = (d[elem][elem2][elem3])
+      if dFin > d_min and dFin < d_mean:
+        newZ[elem][elem2].append('B')
+      elif dFin > d_min and dFin < d_max:
+        newZ[elem][elem2].append('D')
+      elif dFin == d_mean:
+        newZ[elem][elem2].append('C')
+      elif dFin == d_min:
+        newZ[elem][elem2].append('A')
+      elif dFin == d_max:
+        newZ[elem][elem2].append('E')
+
+new_f = np.asarray(newZ)
+print(new_f)
