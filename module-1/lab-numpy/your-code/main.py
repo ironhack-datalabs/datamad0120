@@ -148,7 +148,7 @@ for elem in range(2):
     for elem3 in range(5):
       dFin = (d[elem][elem2][elem3])
       if dFin > d_min and dFin < d_mean:
-        f[elem][elem2][elem3] += 'B'
+        f[elem][elem2][elem3] = 'B'
       elif dFin > d_min and dFin < d_max:
         f[elem][elem2][elem3] = 'D'
       elif dFin == d_mean:
