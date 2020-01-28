@@ -36,9 +36,9 @@ find . -name "lorem*" -type d
 # Encuentra todas las apariciones de et en at.txt dentro de la carpeta lorem.
 grep -r et lorem/at.txt
 # Cuenta el número de apariciones del string et en at.txt dentro de la carpeta lorem.
-grep -c -r et lorem/at.txt
+grep -o -r et lorem/at.txt | wc -l
 # Cuenta el número de apariciones del string et en todos los archivos del directorio lorem-copy.
-grep -c -r et lorem-copy
+grep -o et lorem-copy/* | wc -l 
 
 
 #
@@ -56,7 +56,7 @@ bash bonus.sh
 mkdir "$name"
 # Elimina ese directorio.
 rmdir "$name"
-# Voy a hacer el lab e
+# Voy a hacer el segundo lab, y vuelvo a este.
 # Por cada archivo dentro de la carpeta lorem imprime el número de carácteres que tienen sus nombres. Intenta primero mostrar los archivos mediante un bucle for
 
 
