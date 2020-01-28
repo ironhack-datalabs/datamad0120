@@ -58,7 +58,7 @@
     grep -wo et lorem/at.txt | wc -l
 
 *  Cuenta el número de apariciones del string `et` en todos los archivos del directorio lorem-copy:
-    grep -c et lorem-copy/*
+    grep -oc et lorem-copy/*
 
 ## Ficheros bash
 
@@ -85,6 +85,7 @@ Y veremos por consola el siguiente output.
 ```console
 exercices  inputs  lorem  lorem-copy  modules  outputs  README.md
 ```
+====> también se ve el fichero que hemos creado list_files.sh
 
 ## Bonus
 
