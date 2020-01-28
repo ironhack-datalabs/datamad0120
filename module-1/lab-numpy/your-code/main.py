@@ -76,12 +76,22 @@ print(d_mean)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
+f = np.empty((2,3,5))
+f
+Out[197]:
+array([[[47., 55., 17., 31., 71.],
+        [53., 65., 97., 91., 24.],
+        [26., 44., 99., 13., 28.]],
+
+       [[52., 66., 94., 84., 22.],
+        [95., 29., 45., 28., 60.],
+        [64., 64., 59., 77., 61.]]])
 
 
 
-"""
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
-If a value in d is larger than d_mean but smaller than d_max, assign 75 to the corresponding value in f.
+#If a value in d is larger than d_mean but smaller than d_max, assign 75 to the corresponding value in f.
+"""
 If a value equals to d_mean, assign 50 to the corresponding value in f.
 Assign 0 to the corresponding value(s) in f for d_min in d.
 Assign 100 to the corresponding value(s) in f for d_max in d.
@@ -89,6 +99,28 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
 
+for h in range(f.shape[0]):
+    for i in range(f.shape[1]):
+        for j in range(f.shape[2]):
+            if d[h][i][j] > d_min and d[h][i][j]< d_mean:
+                f[h][i][j]=25
+            elif d[h][i][j] > d_mean and d[h][i][j]<d_max:
+                f[h][i][j]=75
+            elif d[h][i][j] == d_mean:
+                f[h][i][j]=50
+            elif d[h][i][j] == d_min:
+                f[h][i][j]=0
+            else:
+                f[h][i][j]=100
+print(f)
+
+[[[100. 100. 100. 100.  75.]
+  [100.  75.  75.  75. 100.]
+  [100. 100. 100. 100. 100.]]
+
+ [[100.  75.  75.  75. 100.]
+  [ 75. 100. 100. 100.  75.]
+  [ 75.  75.  75.  75.  75.]]]
 
 
 
@@ -112,7 +144,25 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
+print(d)
+[[[43.  2. 67. 22.  9.]
+  [79. 98. 42. 36. 20.]
+  [63. 56. 50.  1. 22.]]
 
+ [[52. 93. 84.  1. 31.]
+  [12. 48. 70. 94. 95.]
+  [29. 23. 83. 77. 92.]]]
+
+print(f)
+[[[ 25.  25.  75.  25.  25.]
+  [ 75. 100.  25.  25.  25.]
+  [ 75.  75.  75.   0.  25.]]
+
+ [[ 75.  75.  75.   0.  25.]
+  [ 25.  25.  75.  75.  75.]
+  [ 25.  25.  75.  75.  75.]]]
+
+# Si obtengo la f como la esperaba porque modifica la d en función de la f que cree anteriormente.
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
