@@ -98,7 +98,6 @@ print('d_mean= ',d_mean)
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
 f=np.empty((2,3,5))
-print('Esto es f: \n',f)
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the 
@@ -110,23 +109,22 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-g=[e for lista in f for e in lista]
-h=[e for lista in g for e in lista]
+for a in range(f.shape[0]):
+        for b in range (f.shape[1]):
+                for c in range (f.shape[2]):
+
+                        if d[a][b][c]==d_min:
+                                f[a][b][c]= 25
+                        elif d[a][b][c]==d_max:
+                                f[a][b][c]= 100
+                        elif d[a][b][c]==d_mean:
+                                f[a][b][c]= 50
+                        elif d_min<d[a][b][c]<d_mean:
+                               f[a][b][c]= 25
+                        else:
+                                f[a][b][c]= 75
 
 
-'''for e in h:
-        if e==d_min:
-                e= 25
-        elif e==d_max:
-                e= 100
-        elif e==d_mean:
-                e= 50
-        elif d_min<e<d_mean:
-                e= 25
-        else:
-                e= 75'''
-
-print(h)
 
 """
 #17. Print d and f. Do you have your expected f?
@@ -148,7 +146,11 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+print(d)
+print('d_max= ',d_max)
+print('d_min= ',d_min)
+print('d_mean= ',d_mean)
+print(f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -162,3 +164,21 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
+
+for a in range(f.shape[0]):
+        for b in range (f.shape[1]):
+                for c in range (f.shape[2]):
+
+                        if d[a][b][c]==d_min:
+                                f[a][b][c]= 'A'
+                        elif d[a][b][c]==d_max:
+                                f[a][b][c]= 'E'
+                        elif d[a][b][c]==d_mean:
+                                f[a][b][c]= 'C'
+                        elif d_min<d[a][b][c]<d_mean:
+                               f[a][b][c]= 'B'
+                        else:
+                                f[a][b][c]='D'
+
+print(f)
