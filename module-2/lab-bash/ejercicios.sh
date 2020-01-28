@@ -55,9 +55,11 @@ find . -iname "lorem*" -type f | wc -l
 
 #18 Encuentra todas las apariciones de et en at.txt dentro de la carpeta lorem.
 cd lorem
-grep -o -i et at.txt | wc -l
+grep -o et at.txt | wc -l
 
 #19 Cuenta el número de apariciones del string et en at.txt dentro de la carpeta lorem.
-grep -o -i "\set\s" at.txt | wc -l
+grep -o "\set\s" lorem/at.txt | wc -l
+grep -w -o et lorem/at.txt | wc -l 
 
 #20 Cuenta el número de apariciones del string et en todos los archivos del directorio lorem-copy.
+grep -w et lorem-copy/*.txt | wc -l
