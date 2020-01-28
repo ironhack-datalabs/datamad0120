@@ -33,10 +33,10 @@ cat lorem-copy/sed.txt |wc -l
 ind . -iname "lorem*" -type f |wc -l
 - Encuentra todas las apariciones de et en at.txt dentro de la carpeta lorem.
 grep "et" lorem/at.txt
-Cuenta el número de apariciones del string et en at.txt dentro de la carpeta lorem.
-
-Cuenta el número de apariciones del string et en todos los archivos del directorio lorem-copy.
-
+- Cuenta el número de apariciones del string et en at.txt dentro de la carpeta lorem.
+grep -o "et" lorem/at.txt |wc -l
+- Cuenta el número de apariciones del string et en todos los archivos del directorio lorem-copy.
+grep -o "et" lorem-copy/* |wc -l
 Ficheros bash
 Manual vi: https://www.howtogeek.com/102468/a-beginners-guide-to-editing-text-files-with-vi/
 
