@@ -146,18 +146,20 @@ def transformLetter(d):
     d_max = np.max(d)
     d_min = np.min(d)
     d_mean = np.mean(d)
-    with np.nditer([d, f], flags=["buffered", "external_loop"], op_flags=["readwrite"], op_dtypes=["float64", "S32"], casting="same_kind") as it:
+    d = d.astype(str)
+    f = f.astype(str)
+    with np.nditer([d, f], op_flags=["readwrite"]) as it:
         for i, e in it:
-            if i > d_min and i < d_mean:
+            if float(i) > d_min and float(i) < d_mean:
                 e[...] = "B"
-            if i > d_mean and i < d_max:
+            if float(i) > d_mean and float(i) < d_max:
                 e[...] = "D"
-            if i == d_mean:
+            if float(i) == d_mean:
                 e[...] = "C"
-            if i == d_min:
+            if float(i) == d_min:
                 e[...] = "A"
-            if i == d_max:
+            if float(i) == d_max:
                 e[...] = "E"
     return f
 
-ejemploLista = [e for i in ejemplo.tolist() for e in i]
+print(f"18. {transformLetter(ejemplo)}")
