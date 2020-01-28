@@ -72,13 +72,11 @@ cat at.txt | grep 'et'
 
 
 Cuenta el número de apariciones del string et en at.txt dentro de la carpeta lorem.
-cat at.txt | grep -o 'et' | wc -l
+cat at.txt | grep -o -w 'et' | wc -l
 
 
 Cuenta el número de apariciones del string et en todos los archivos del directorio lorem-copy.
-cat at.txt | grep -o 'et' | wc -l; cat sed.txt | grep -o 'et' | wc -l; cat lorem.txt | grep -o 'et' | wc -l
-
-
+cat *txt | grep -o 'et' | wc -l
 
 
 
