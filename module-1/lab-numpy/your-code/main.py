@@ -84,23 +84,21 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 '''
-newZ = [[[]for j in range(3)] for i in range(2)]
+
 for elem in range(2):
   for elem2 in range(3):
     for elem3 in range(5):
       dFin = (d[elem][elem2][elem3])
       if dFin > d_min and dFin < d_mean:
-        newZ[elem][elem2].append(25)
+        f[elem][elem2][elem3] = 25
       elif dFin > d_min and dFin < d_max:
-        newZ[elem][elem2].append(75)
+        f[elem][elem2][elem3] = 75
       elif dFin == d_mean:
-        newZ[elem][elem2].append(50)
+        f[elem][elem2][elem3] = 50
       elif dFin == d_min:
-        newZ[elem][elem2].append(0)
+        f[elem][elem2][elem3] = 0
       elif dFin == d_max:
-        newZ[elem][elem2].append(100)
-
-f = np.asarray(newZ)
+        f[elem][elem2][elem3] = 100
 
 
 
@@ -143,21 +141,22 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
-newZ = [[[]for j in range(3)] for i in range(2)]
+f = np.empty(shape = [2,3,5], dtype = 'str')
+
 for elem in range(2):
   for elem2 in range(3):
     for elem3 in range(5):
       dFin = (d[elem][elem2][elem3])
       if dFin > d_min and dFin < d_mean:
-        newZ[elem][elem2].append('B')
+        f[elem][elem2][elem3] += 'B'
       elif dFin > d_min and dFin < d_max:
-        newZ[elem][elem2].append('D')
+        f[elem][elem2][elem3] = 'D'
       elif dFin == d_mean:
-        newZ[elem][elem2].append('C')
+        f[elem][elem2][elem3] = 'C'
       elif dFin == d_min:
-        newZ[elem][elem2].append('A')
+        f[elem][elem2][elem3] = 'A'
       elif dFin == d_max:
-        newZ[elem][elem2].append('E')
+        f[elem][elem2][elem3] = 'E'
 
-newF = np.asarray(newZ)
-print(newF)
+
+print(f)
