@@ -63,7 +63,7 @@ grep -o et at.txt lorem.txt sed.txt | wc -l
 #BONUS
 
 #Almacena en una variable name tu nombre.
-name=Eduardo
+name="Eduardo"
 
 #Imprime esa variable.
 echo $name
