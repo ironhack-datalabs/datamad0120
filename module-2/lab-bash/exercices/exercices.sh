@@ -69,11 +69,16 @@ Cuenta el número de archivos que empiezan por lorem que están en este director
 
 Encuentra todas las apariciones de et en at.txt dentro de la carpeta lorem.
 
-#
+#egrep --color -R 'et' ./lorem/at.txt
 
 Cuenta el número de apariciones del string et en at.txt dentro de la carpeta lorem.
 
+#grep -o 'et' ./lorem/at.txt | wc -w
+#grep -o 'et' ./lorem/at.txt | wc -l
+
 Cuenta el número de apariciones del string et en todos los archivos del directorio lorem-copy.
+
+#grep -o 'et' ./lorem-copy/* | wc -l
 
 Ficheros bash
 Manual vi: https://www.howtogeek.com/102468/a-beginners-guide-to-editing-text-files-with-vi/
