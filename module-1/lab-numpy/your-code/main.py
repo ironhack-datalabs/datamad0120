@@ -12,8 +12,9 @@ print(np.show_config())
 
 r = random.
 
-a = [[[r for x in range(5)] for y in range(2)] for z in range (3)]
+a = [[[x for x in range(5)] for y in range(2)] for z in range (3)]
 
+a = [[[x for x in range(5)] for y in range(2)] for z in range (3)]
 
 #4. Print a.
 
