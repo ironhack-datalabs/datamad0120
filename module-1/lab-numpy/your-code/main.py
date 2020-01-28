@@ -3,8 +3,8 @@ import numpy as np
 
 #2. Print the NUMPY version and the configuration.
 
-#print(f"Version numpy: {np.__version__}")
-#print(f"Configuración numpy: {np.show_config()}")
+print(f"2. Version numpy: {np.__version__}")
+print(f"2. Configuración numpy: {np.show_config()}")
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
@@ -13,7 +13,7 @@ a = np.random.random_sample((2, 3, 5))
 
 #4. Print a.
 
-#print(a)
+print(f"4. a: {a}")
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
@@ -22,15 +22,15 @@ b = np.full((5, 2, 3), 1)
 
 #6. Print b.
 
-#print(b)
+print(f"6. b: {b}")
 
 #7. Do a and b have the same size? How do you prove that in Python code?
 
-#print(f"7. Have the same size? {a.size == b.size}")
+print(f"7. Have the same size? {a.size == b.size}")
 
 #8. Are you able to add a and b? Why or why not?
 
-#print("8. No se pueden sumar porque no tienen las mismas dimensiones")
+print("8. No se pueden sumar porque no tienen las mismas dimensiones")
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 
@@ -42,9 +42,9 @@ d = a + c
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
-#print(f"a: {a}")
-#print(f"d: {d}")
-#print("d es a sumando uno a todos sus elementos")
+print(f"11. a: {a}")
+print(f"11. d: {d}")
+print("11. d es a sumando uno a todos sus elementos")
 
 #12. Multiply a and c. Assign the result to e.
 
@@ -52,7 +52,7 @@ e = a * c
 
 #13. Does e equal to a? Why or why not?
 
-#print("Si, porque a es una matriz de 1's")
+print("13. Si, porque a es una matriz de 1's")
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
@@ -94,6 +94,7 @@ def transformNumber(d):
     return f
 
 f = transformNumber(f)
+
 """
 #17. Print d and f. Do you have your expected f?
 For instance, if your d is:
@@ -124,8 +125,8 @@ ejemplo = np.array([[[1.85836099, 1.67064465, 1.62576044, 1.40243961, 1.88454931
         [1.79129243, 1.74983003, 1.96028037, 1.85166831, 1.65450881],
         [1.18068344, 1.9587381 , 1.00656599, 1.93402165, 1.73514584]]])
 
-#print(transform(ejemplo))
-#print("17. Al funcionar el ejemplo, supongo que tengo mi f esperada")
+print(transformNumber(ejemplo))
+print("17. Al funcionar el ejemplo, supongo que tengo mi f esperada")
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -159,6 +160,4 @@ def transformLetter(d):
                 e[...] = "E"
     return f
 
-#print(transformLetter(ejemplo))
 ejemploLista = [e for i in ejemplo.tolist() for e in i]
-print(ejemploLista)
