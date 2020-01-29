@@ -84,7 +84,11 @@
 
 * Almacena en una variable `name` tu nombre.
 
+# name="Xabier"
+
 * Imprime esa variable.
+
+# echo $name
 
 * Crea un directorio nuevo que se llame como el contenido de la variable `name`.
 
