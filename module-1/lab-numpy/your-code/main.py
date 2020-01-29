@@ -165,6 +165,7 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
 Again, you don't need Numpy in this question.
 """
 
+f=f.astype(str)
 
 for a in range(f.shape[0]):
         for b in range (f.shape[1]):
