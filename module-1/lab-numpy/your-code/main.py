@@ -57,16 +57,23 @@ e = a*c
 
 #13. Does e equal to a? Why or why not?
 
+if e == a:
+        print("e equals a")
 
+print("They are the same since e is the result of multiplicating two matrices with the same dimension")
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
-
+print(np.max(d))
+print(np.min(d))
+print(np.mean(d))
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
+f = np.empty((2,3,5))
+print(f)
 
 
 
