@@ -63,6 +63,9 @@ empty = ""
 for word in bytes:
     empty += str(word, 'utf-8')
 
+message = empty.replace('\n'," ")
+print(message)
+
 print(empty) # Finally...
 
 
