@@ -6,6 +6,7 @@ load_dotenv('your-code/.env')
 
 def requestGithub(endpoint):
     token = os.getenv("GITHUB_APIKEY")
+    print (token)
     if not token:
         raise ValueError("Necesitas un GITHUB_APIKEY token")
     
