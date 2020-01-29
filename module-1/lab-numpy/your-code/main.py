@@ -2,6 +2,7 @@
 
 import numpy as np
 
+
 #2. Print the NUMPY version and the configuration.
 
 print(np.__version__)
