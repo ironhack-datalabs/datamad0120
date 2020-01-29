@@ -41,6 +41,7 @@ grep -o -r et lorem/at.txt | wc -l
 grep -o et lorem-copy/* | wc -l 
 
 
+
 #
 vi list_files.sh
 
