@@ -143,6 +143,7 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
 Again, you don't need Numpy in this question.
 """
 
+g = np.empty((2,3,5), dtype = 'str')
 
 (a,b,c) = np.shape(d)
 
