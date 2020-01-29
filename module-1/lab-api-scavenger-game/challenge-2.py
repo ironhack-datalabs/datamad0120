@@ -25,18 +25,7 @@ def requestGithub(endpoint):
 
 requestGithub("/repos/ironhack-datalabs/datamad0120")
 
-data_forks=requestGithub("/repos/ironhack-datalabs/datamad0120/forks")
+data_commit=requestGithub("/repos/ironhack-datalabs/datamad0120/commits?since=2020-01-20T00:00:00Z&until=2020-01-26T23:59:59Z")
 
-'''
-Compruebo si el total de fork, coincide con el que se muestra en la página.
-'''
 
-print('Total forks: ',len(data_forks))
-
-list_language=[]
-for e in data_forks:   
-    if "language" in e:
-        if e["language"] not in list_language:
-            list_language.append(e["language"])
-
-print(list_language)
+print('Total commits: ',len(data_commit))
