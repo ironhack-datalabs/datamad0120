@@ -39,7 +39,7 @@ grep -o "et" lorem/at.txt |wc -l
 grep -o "et" lorem-copy/* |wc -l
 Ficheros bash
 Manual vi: https://www.howtogeek.com/102468/a-beginners-guide-to-editing-text-files-with-vi/
-
+ 
 Cualquier comando o comandos de bash se pueden almacenar en un fichero y ejecutar cuando queramos. Obviamente puedes utilizar tu editor preferido. Creamos el fichero:
 
 $ vi list_files.sh
