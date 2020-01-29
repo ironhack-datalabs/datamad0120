@@ -129,3 +129,23 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
+g = np.empty((2,3,5), dtype = 'str')
+
+(a,b,c) = np.shape(d)
+
+for i in range(0,a):       
+  for j in range(0,b):
+    for k in range(0,c):    
+      if d[i][j][k] < d_mean and d[i][j][k] > d_min:
+        g[i][j][k] = 'B'
+      elif d[i][j][k] > d_mean and d[i][j][k] < d_max:
+        g[i][j][k] = 'D'
+      elif d[i][j][k] == d_mean:
+        g[i][j][k] = 'C'
+      elif d[i][j][k] == d_max:
+        g[i][j][k] = 'E'
+      else:
+        g[i][j][k] = 'A'
+
+print(g)
