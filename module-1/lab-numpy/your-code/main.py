@@ -8,33 +8,54 @@ import numpy as np
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
-
+a = np.random.random((2,3,5))
 
 
 #4. Print a.
+[[[0.62204014 0.8649637  0.11385464 0.46444231 0.73106722]
+  [0.13989112 0.88203857 0.98616741 0.06054316 0.21190758]
+  [0.10108994 0.83278644 0.88697504 0.06730669 0.5203713 ]]
 
+ [[0.48784356 0.82209025 0.43648626 0.98206557 0.60965555]
+  [0.1762449  0.35723509 0.94063574 0.11926763 0.10341031]
+  [0.69517511 0.61173762 0.22969014 0.08530264 0.28712646]]]
 
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
-
+b= np.full((5,2,3),1)
 
 
 #6. Print b.
+[[[1 1 1]
+  [1 1 1]]
 
+ [[1 1 1]
+  [1 1 1]]
+
+ [[1 1 1]
+  [1 1 1]]
+
+ [[1 1 1]
+  [1 1 1]]
+
+ [[1 1 1]
+  [1 1 1]]]
 
 
 #7. Do a and b have the same size? How do you prove that in Python code?
+a.size=30
+b.size=30
 
-
+a.size==b.size
 
 
 #8. Are you able to add a and b? Why or why not?
-
+#hay que hacerle un re.shape a alguna de las dos array para que puedan emparejar por lo tanto no es posible
 
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
-
+c=b.reshape(2,3,5)
 
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
