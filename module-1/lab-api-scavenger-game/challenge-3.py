@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 import requests
 import json
+import base64
 
 
 #Obtener Token de Github
@@ -18,7 +19,7 @@ print(f"We have a github token: {token[0:3]}")
 usuario = "ironhack-datalabs"
 repositorio = "scavenger"
 accion = "contents"
-path = ""
+
 
 #Obtener URL solicitada
 baseUrl = "https://api.github.com"
@@ -45,9 +46,6 @@ for element in result["items"]:
     names.append(element["name"])
 
 
-
-
-
 paths = []
 
 for element in result["items"]:
@@ -55,14 +53,67 @@ for element in result["items"]:
     paths.append(element["path"])
 
 
-content = []
+order_paths = []
 
-for path in paths:
+for element in paths:
+    order = (element[7:11],element)
 
-    url2 = f"https://api.github.com"+"?"+f"repos/ironhack-datalabs/scavenger/contents/{path}"
+    order_paths.append(order)
+    
+sorted_paths = sorted(order_paths)
+
+
+
+
+
+#Nueva petición para extraer el contenido de cada ruta:
+
+peticiones = []
+
+for path in sorted_paths:
+
+    url2 = baseUrl + f"/repos/{usuario}/{repositorio}/{accion}/{path[1]}"
     peticion2 = requests.get(url2, headers=headers)
-    print(peticion.status_code)
     result2 = peticion2.json()
 
-    print(result2)
+    peticiones.append(result2)
+
+
+
+content = []
+
+for element in peticiones:
+
+    content.append(element["content"])
+
+
+#Depuración de mensaje (saltos de línea y decodificación):
+
+clean_content = []
+
+for element in content:
+
+    cleaning = element.rstrip()
+
+    clean_content.append(cleaning)
+
+
+
+decoded_content = []
+
+for element in clean_content:
+
+    base64_bytes = element.encode('ascii')
+    message_bytes = base64.b64decode(base64_bytes)
+    message = message_bytes.decode('ascii')
+    message2 = message.rstrip()
+    decoded_content.append(message2)
+
+
+final_result = " ".join(decoded_content)
+
+print(final_result)
+
+
+
     
