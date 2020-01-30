@@ -4,4 +4,5 @@ venv/
 .ipynb_checkpoints
 .env
 .mypy_cache
+__pycache__
 
