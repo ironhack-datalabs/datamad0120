@@ -66,7 +66,7 @@ for word in bytes:
 message = empty.replace('\n'," ")
 print(message)
 
-print(empty) # Finally...
+# Finally...
 
 
 
