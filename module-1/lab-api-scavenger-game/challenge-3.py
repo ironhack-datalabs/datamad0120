@@ -49,7 +49,7 @@ for file in name_files:
     
     for e in infile:        
         string=str(e['name'])
-        res=re.findall(r'(....)\.scavengerhunt',e['name'])
+        res=re.findall(r'(.....)\.scavengerhunt',e['name'])
         if res:
             scavengerhunt_list.append(res)
             
