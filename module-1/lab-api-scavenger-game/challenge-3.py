@@ -49,7 +49,7 @@ for file in name_files:
     
     for e in infile:        
         string=str(e['name'])
-        res=re.findall(r'(.....)\.scavengerhunt',e['name'])
+        res=re.findall(r'(....)\.scavengerhunt',e['name'])
         if res:
             scavengerhunt_list.append(res)
             
@@ -60,6 +60,7 @@ print(scavengerhunt_list)
 
 path=list(zip(name_files,scavengerhunt_list))
 
+path.sort(key=lambda path: path[1])
 print(path)
 
 path2=[]
@@ -67,12 +68,14 @@ for a,b in path:
     string=str(a)+'/'+str(b)
     path2.append(string)
 
+
 print(path2)
+
 
 joke=[]
 for ext in path2:
     code=requestGithub(f'/repos/ironhack-datalabs/scavenger/contents/{ext}')
-    contenido=base64.b64decode(str(code))
+    contenido=base64.b64decode(code)
     
     joke.append(contenido)
 
