@@ -2,3 +2,7 @@
 .idea
 venv/
 .ipynb_checkpoints
+module-1/lab-api-scavenger-game/.env
+.env
+output.json
+module-1/lab-api-scavenger-game/output.json
