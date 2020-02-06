@@ -14,7 +14,7 @@ We have learned some super useful query operators, that will helps us to make mu
 
 ## Deliverables
 
-In the `queries.py` file, you will find the instructions about the queries you need to do. Complete the code so your query results are printed on console `stdout`.
+In the `queries.py` file, you will find the instructions about the queries you need to do. Complete the code with your queries on a `pymongo` format.
 You may test your queries on Mongo Compass, but you will need to write it on a format compatible with `pymongo` python library. 
 
 ## Instructions
