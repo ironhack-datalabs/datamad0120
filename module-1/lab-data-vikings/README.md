@@ -23,14 +23,6 @@ Modify the file `vikingsClasses.py` so that all the tests are correct.
 
 - Modify `vikingsClasses.py` and save your changes.
 
-```
-git add .
-git commit -m "done"
-git push origin lab-data-vikings
-```
-
-- Navigate to your repo and [create a Pull Request](https://help.github.com/articles/creating-a-pull-request/)
-
 ## Tests
 
 Best way to know how our code is doing is to work with tests. To test the `vikingsClases.py` file step by step you can comment and uncomment lines of code of `tests.py`.
