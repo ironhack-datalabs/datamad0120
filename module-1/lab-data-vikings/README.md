@@ -10,18 +10,18 @@ In this laboratory you will work with the concept of inheritance in Python.
 
 You will find the following files in the folder of this laboratory:
 
-- `vikingsClases.py`
+- `vikingsClasses.py`
 - `tests.py`
 
 You are free to use any of the code editors you have to open these files.
 
 ### Challenge Question
 
-Modify the file `vikingsClases.py` so that all the tests are correct.
+Modify the file `vikingsClasses.py` so that all the tests are correct.
 
 ## Submission
 
-- Modify `vikingsClases.py` and save your changes.
+- Modify `vikingsClasses.py` and save your changes.
 
 ```
 git add .
@@ -67,7 +67,7 @@ OK
 
 ### Failed Test
 
-When any test is incorrect you will receive the following message in the terminal. It means that you must keep making changes in the `vikingsClases.py` file.
+When any test is incorrect you will receive the following message in the terminal. It means that you must keep making changes in the `vikingsClasses.py` file.
 
 ```
 $ > python3 tests.py -v
@@ -99,7 +99,7 @@ FAILED (failures=1)
 
 **Write the code**
 
-Now we have to write the correct code in the `vikingsClases.py` file to make the test pass. The starter code you will find in the file is the following:
+Now we have to write the correct code in the `vikingsClasses.py` file to make the test pass. The starter code you will find in the file is the following:
 
 ```
 # Soldier
