@@ -8,36 +8,14 @@ We are back with our queries! :wink:
 
 We have learned some super useful query operators, that will helps us to make much better queries to retrieve the data we need. We will continue using the **Crunchbase** database we used on the last exercise.
 
-## Requirements
-
-- Fork this repo
-- Clone this repo
-
 ## Submission
 
-- Upon completion, run the following commands
-
-```
-$ git add .
-$ git commit -m "done"
-$ git push origin master
-```
-
-- Create Pull Request so your TAs can check up your work.
+- Upon completion, create Pull Request so your TAs can check up your work.
 
 ## Deliverables
 
-Since we will be querying our database from Mongo Compass, you will need to copy/paste the `query`, `projection`, `sort`, `skip` and `limit` you entered on Mongo Compass. In the `queries.md` file, you will find the instructions about the queries you need to do, and a field to fill the answers.
-
-### Example
-
-1. This is an example
-
-- **`query`**: /_You should copy/paste the query in here_/
-- **`projection`**: /_You should copy/paste the projection in here_/
-- **`sort`**: /_You should copy/paste the sort in here_/
-- **`skip`**: /_You should copy/paste the skip in here_/
-- **`limit`**: /_You should copy/paste the limit in here_/
+In the `queries.py` file, you will find the instructions about the queries you need to do. Complete the code so your query results are printed on console `stdout`.
+You may test your queries on Mongo Compass, but you will need to write it on a format compatible with `pymongo` python library. 
 
 ## Instructions
 
@@ -89,4 +67,4 @@ You already know how this goes, so let's start working:
 18. All the companies that have been acquired on the first trimester of the year. Limit the search to 10 companies, and retrieve only their `name` and `acquisition` fields.
 19. All the companies that have been founded between 2000 and 2010, but have not been acquired before 2011.
 
-Happy Coding! :heart:
+Happy Coding! :heart: :rocket:
