@@ -2,6 +2,7 @@
 
 # Lab | Pandas Deep Dive
 
+
 ## Introduction
 
 By this point in the program, you should have learned how to perform a variety of operations using the Pandas library.
