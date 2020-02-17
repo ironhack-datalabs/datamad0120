@@ -2,6 +2,7 @@
 
 # Lab | Intro to Recommender Systems
 
+
 ## Introduction
 
 In the Intro to Recommender Systems lesson, we learned about collaborative filtering and walked through how to generate recommendations based on user similarity. In this lab, we will continue practicing how to create a user-based collaborative filtering recommender system in a step-by-step fashion.
