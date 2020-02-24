@@ -1,0 +1,1 @@
+github.com:vagabundoo/chat-sentiment-api.git
