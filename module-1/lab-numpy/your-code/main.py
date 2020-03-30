@@ -4,13 +4,14 @@ import numpy as np
 
 #2. Print the NUMPY version and the configuration.
 
-print(np.version.version)
+print(np.__version__)
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 
 a = np.random.rand(2,3,5)
-
+a = np.random.randint(50, size=(2,3,5))
+a = np.random.randn(2,3,5)
 
 #4. Print a.
 
@@ -19,7 +20,7 @@ print(a)
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
 
-b = np.full((5,2,3), 1)
+b = np.ones((5,2,3))
 
 #6. Print b.
 
@@ -27,37 +28,41 @@ print(b)
 
 #7. Do a and b have the same size? How do you prove that in Python code?
 
-a.shape
-b.shape
+print("a shape: ", a.shape)
+print("b shape: ", b.shape)
 
 #8. Are you able to add a and b? Why or why not?
 
-print("No. It throws a ValueError: operands could not be broadcast together with shapes (2,3,5) (5,2,3). For these operations, matrices must be of the same dimension since the addition occurs adding the numbers that occupy the same place in the matrix.")
+try:
+        print(a+b)
+except Exception:
+        print("No tienen las mismas dimensiones.")
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 
 c = b.transpose(1,2,0)
-
+print("C: \n", c)
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 
-d = a + c
+try:
+        d = a+c
+except Exception:
+        print("No tienen las mismas dimensiones.")
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
-print(a)
-print("a shape: ", a.shape)
-print(d)
-print("d shape: ", d.shape)
-
+print("A: \n", a)
+print("D: \n", d)
 
 #12. Multiply a and c. Assign the result to e.
 
 e = a*c
+print("E: \n", e)
 
 #13. Does e equal to a? Why or why not?
 
-if e == a:
+if e.all() == a.all():
         print("e equals a")
 
 print("They are the same since e is the result of multiplicating two matrices with the same dimension")
@@ -65,16 +70,16 @@ print("They are the same since e is the result of multiplicating two matrices wi
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
-print(np.max(d))
-print(np.min(d))
-print(np.mean(d))
-
+d_max = np.max(d)
+d_min = np.min(d)
+d_mean = np.mean(d)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
 f = np.empty((2,3,5))
-print(f)
-
+# empty, unlike zeros, does not set the array values to zero, 
+# and may therefore be marginally faster. On the other hand, 
+# it requires the user to manually set all the values in the array, and should be used with caution.
 
 
 """
@@ -86,7 +91,7 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-
+print(a.flatten())
 
 
 
