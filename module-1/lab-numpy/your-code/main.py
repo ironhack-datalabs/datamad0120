@@ -91,7 +91,8 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-print(a.flatten())
+prueba = a.flatten()
+print(prueba)
 
 
 
