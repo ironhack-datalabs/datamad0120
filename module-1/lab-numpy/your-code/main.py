@@ -91,10 +91,21 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
-prueba = a.flatten()
-print(prueba)
+d_flattened = d.flatten()
+lst = []
 
-
+for number in d_flattened:
+        if number > d_min and number < d_mean:
+                lst.append(25)
+        elif number > d_mean and number < d_max:
+                lst.append(75)
+        elif number == d_mean:
+                lst.append(50)
+        elif number == d_min:
+                lst.append(0)
+        elif number == d_max:
+                lst.append(100)
+f = np.asarray(lst).reshape((2,3,5))
 
 """
 #17. Print d and f. Do you have your expected f?
@@ -116,7 +127,8 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+print("D: \n", d)
+print("F: \n", f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -130,3 +142,18 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+lst = []
+
+for number in d_flattened:
+        if number > d_min and number < d_mean:
+                lst.append("B")
+        elif number > d_mean and number < d_max:
+                lst.append("D")
+        elif number == d_mean:
+                lst.append("C")
+        elif number == d_min:
+                lst.append("A")
+        elif number == d_max:
+                lst.append("E")
+f = np.asarray(lst).reshape((2,3,5))
+print(f)
